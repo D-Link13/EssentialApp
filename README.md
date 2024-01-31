@@ -1,4 +1,4 @@
 # EssentialApp
 Essential App case study
 
-![CI](https://github.com/github/docs/actions/workflows/CI.yml/badge.svg)
+![CI](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
