@@ -99,9 +99,9 @@
 - Primary course (Happy path):
 
     1. Execute "Save Feed Items" command with above data.
-    2. System encodes feed items.
-    3. System timestamps the new cache.
-    4. System deletes the old cache data.
+    2. System deletes the old cache data.
+    3. System encodes feed items.
+    4. System timestamps the new cache.
     5. System saves the new cache data.
     6. System delivers a success message.
 
