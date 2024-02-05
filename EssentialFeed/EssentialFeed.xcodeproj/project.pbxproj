@@ -116,7 +116,6 @@
 		90A2E46B2B644E950069CABA /* FeedAPI */ = {
 			isa = PBXGroup;
 			children = (
-				906FF5F52B6949F7009246E0 /* Helpers */,
 				90AB94F82B5EBED500034E31 /* LoadFeedFromRemoteUseCaseTests.swift */,
 				906FF5F32B684F4D009246E0 /* URLSessionHTTPClientTests.swift */,
 			);
@@ -158,6 +157,7 @@
 		90AB94F72B5EBED500034E31 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				906FF5F52B6949F7009246E0 /* Helpers */,
 				90C8F0CE2B70FC6700752AC3 /* FeedCache */,
 				90A2E46B2B644E950069CABA /* FeedAPI */,
 			);
