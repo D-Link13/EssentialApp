@@ -25,8 +25,15 @@
 
     Given the customer has no connectivity
     And there's a cached version of the feed
+    And the cache is less than seven days old
     When the customer requests to see the feed
     Then the app should display the latest feed saved
+
+    Given the customer has no connectivity
+    And there's a cached version of the feed
+    And the cache is seven days old or more
+    When the customer requests to see the feed
+    Then the app should display the error message
 
     Given the customer has no connectivity
     And the cache is empty
@@ -39,7 +46,7 @@
 // *** Use Cases *** //
 
 
-// Load Feed Use Case
+// Load Feed From Remote Use Case
 
 - Data(Input)
     * URL
@@ -54,31 +61,37 @@
     
 - Invalid data (Sad path):
 
-    1. System delivers error.
+    1. System delivers invalid data error.
     
 - No connectivity (Sad path):
 
-    1. System delivers error.
+    1. System delivers connectivity error.
     
     
-// Load Feed Fallback (Cache) Use Case
+// Load Feed From Cache Use Case
 
 - Data(Input)
-    * Max age
+    * Max age (7 days)
 
 - Primary course (Happy path):
 
-    1. Execute "Retrieve Feed Items" command with above data.
+    1. Execute "Load Feed Items" command with above data.
     2. System fetches feed data from cache.
+    3. System validates cache is less than seven days old.
     4. System creates feed items from cached data.
     5. System delivers feed items.
-    
-- No cache course (Sad path):
 
+- Error course (Sad path):
+    1. System delivers error.
+
+- Expired cache course (Sad path):
+    1. System deletes old cache.
+    2. System delivers no feed items.
+
+- No cache course (Sad path):
     1. System delivers no feed items.
     
-    
-// Save Feed Use Case
+// Cache Feed Use Case
 
 - Data(Input)
     * Feed Items
@@ -88,5 +101,14 @@
     1. Execute "Save Feed Items" command with above data.
     2. System encodes feed items.
     3. System timestamps the new cache.
-    4. System replaces the old cache with new data.
-    5. System delivers a success message.
+    4. System deletes the old cache data.
+    5. System saves the new cache data.
+    6. System delivers a success message.
+
+- Cache deletion failure (Sad path):
+
+    1. System delivers error.
+
+- Saving error cource (Sad path):
+
+    1. System delivers errro.
