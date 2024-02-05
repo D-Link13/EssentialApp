@@ -66,8 +66,8 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
 
-        let item1 = makeItem()
-        let item2 = makeItem(description: "a description", location: "a location")
+        let item1 = makeFeedImage()
+        let item2 = makeFeedImage(description: "a description", location: "a location")
         
         expect(sut, toCompleteWith: .success([item1.model, item2.model])) {
             let json = makeItemsJSON([item1.json, item2.json])
@@ -106,13 +106,13 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         return .failure(error)
     }
     
-    private func makeItem(description: String? = nil, location: String? = nil, imageURL: URL = URL(string: "http://image-url.com")!) -> (model: FeedItem, json: [String: Any]) {
-        let model = FeedItem(id: UUID(), description: description, location: location, imageURL: imageURL)
+    private func makeFeedImage(description: String? = nil, location: String? = nil, imageURL: URL = URL(string: "http://image-url.com")!) -> (model: FeedImage, json: [String: Any]) {
+        let model = FeedImage(id: UUID(), description: description, location: location, url: imageURL)
         let json = [
             "id": model.id.uuidString,
             "description": model.description,
             "location": model.location,
-            "image": model.imageURL.absoluteString
+            "image": model.url.absoluteString
         ].compactMapValues { $0 }
         return (model, json)
     }

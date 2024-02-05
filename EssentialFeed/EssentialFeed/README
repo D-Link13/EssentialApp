@@ -53,11 +53,11 @@
 
 - Primary course (Happy path):
 
-    1. Execute "Load Feed Items" command with above data.
+    1. Execute "Load Image Feed" command with above data.
     2. System downloads data from the URL.
     3. System validates downloaded data.
-    4. System creates feed items from valid data.
-    5. System delivers feed items.
+    4. System creates image feed from valid data.
+    5. System delivers image feed.
     
 - Invalid data (Sad path):
 
@@ -75,32 +75,32 @@
 
 - Primary course (Happy path):
 
-    1. Execute "Load Feed Items" command with above data.
+    1. Execute "Load Image Feed" command with above data.
     2. System fetches feed data from cache.
     3. System validates cache is less than seven days old.
-    4. System creates feed items from cached data.
-    5. System delivers feed items.
+    4. System creates image feed from cached data.
+    5. System delivers image feed.
 
 - Error course (Sad path):
     1. System delivers error.
 
 - Expired cache course (Sad path):
     1. System deletes old cache.
-    2. System delivers no feed items.
+    2. System delivers no feed images.
 
 - No cache course (Sad path):
-    1. System delivers no feed items.
+    1. System delivers no feed images.
     
 // Cache Feed Use Case
 
 - Data(Input)
-    * Feed Items
+    * Image Feed
     
 - Primary course (Happy path):
 
-    1. Execute "Save Feed Items" command with above data.
+    1. Execute "Save Image Feed" command with above data.
     2. System deletes the old cache data.
-    3. System encodes feed items.
+    3. System encodes image feed.
     4. System timestamps the new cache.
     5. System saves the new cache data.
     6. System delivers a success message.
