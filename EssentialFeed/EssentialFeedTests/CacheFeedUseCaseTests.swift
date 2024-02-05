@@ -2,10 +2,15 @@ import XCTest
 import EssentialFeed
 
 class FeedStore {
-    var deleteCacheFeedCallCount = 0
+    var deleteCachedFeedCallCount = 0
+    var insertCachedFeedCallCount = 0
     
     func deleteCachedFeed() {
-        deleteCacheFeedCallCount += 1
+        deleteCachedFeedCallCount += 1
+    }
+    
+    func complete(with error: Error, at index: Int = 0) {
+        
     }
 }
 
@@ -26,7 +31,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
     func test_init_doesNotDeleteCacheUponCreation() {
         let (_, store) = makeSUT()
         
-        XCTAssertEqual(store.deleteCacheFeedCallCount, 0)
+        XCTAssertEqual(store.deleteCachedFeedCallCount, 0)
     }
     
     func test_save_requestsCacheDeletion() {
@@ -35,7 +40,18 @@ final class CacheFeedUseCaseTests: XCTestCase {
         
         sut.save(items)
         
-        XCTAssertEqual(store.deleteCacheFeedCallCount, 1)
+        XCTAssertEqual(store.deleteCachedFeedCallCount, 1)
+    }
+    
+    func test_save_doesNotRequestCacheInsertionOnDeletionError() {
+        let (sut, store) = makeSUT()
+        let items = [uniqueFeedItem(), uniqueFeedItem()]
+        
+        sut.save(items)
+        
+        store.complete(with: anyNSError())
+        
+        XCTAssertEqual(store.insertCachedFeedCallCount, 0)
     }
     
     // MARK: - Helpers
@@ -46,6 +62,10 @@ final class CacheFeedUseCaseTests: XCTestCase {
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, store)
+    }
+    
+    private func anyNSError() -> NSError {
+        NSError(domain: "any error", code: 0)
     }
     
     private func anyURL() -> URL {
