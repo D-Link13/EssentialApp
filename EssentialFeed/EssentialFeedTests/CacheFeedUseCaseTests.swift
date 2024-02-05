@@ -22,11 +22,11 @@ class FeedStore {
         messages.append(.insert(items, timestamp))
     }
     
-    func complete(with error: Error, at index: Int = 0) {
+    func completeDeletion(with error: Error, at index: Int = 0) {
         deletionCompletions[index](error)
     }
     
-    func completeSuccessfully(at index: Int = 0) {
+    func completeDeletionSuccessfully(at index: Int = 0) {
         deletionCompletions[index](nil)
     }
 }
@@ -71,7 +71,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
         let items = [uniqueFeedItem(), uniqueFeedItem()]
         
         sut.save(items)
-        store.complete(with: anyNSError())
+        store.completeDeletion(with: anyNSError())
         
         XCTAssertEqual(store.messages, [.deleteCachedFeed])
     }
@@ -82,7 +82,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
         let items = [uniqueFeedItem(), uniqueFeedItem()]
         
         sut.save(items)
-        store.completeSuccessfully()
+        store.completeDeletionSuccessfully()
         
         XCTAssertEqual(store.messages, [.deleteCachedFeed, .insert(items, timestamp)])
     }
