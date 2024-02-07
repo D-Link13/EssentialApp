@@ -137,7 +137,7 @@ Insert
 
 - Retrieve
     ✅ Empty cache works (before something is inserted)
-    - Empty cache twice returns empty cache
+    ✅ Empty cache twice returns empty cache
     - Non-empty cache returns data
     - Non-empty cache twice returns same data (retrieve should have no side-effects)
     - Error returns error (if possible to simulate, e.g., invalid data)
