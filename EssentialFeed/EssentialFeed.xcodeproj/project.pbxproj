@@ -31,6 +31,7 @@
 		90C8F0E22B72CA3400752AC3 /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8F0E12B72CA3400752AC3 /* ValidateFeedCacheUseCaseTests.swift */; };
 		90C8F0E52B72D06800752AC3 /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8F0E42B72D06800752AC3 /* FeedCacheTestHelpers.swift */; };
 		90C8F0E72B72D22E00752AC3 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8F0E62B72D22E00752AC3 /* SharedTestHelpers.swift */; };
+		90C8F0E92B738A8C00752AC3 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8F0E82B738A8C00752AC3 /* FeedCachePolicy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		90C8F0E12B72CA3400752AC3 /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		90C8F0E42B72D06800752AC3 /* FeedCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelpers.swift; sourceTree = "<group>"; };
 		90C8F0E62B72D22E00752AC3 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		90C8F0E82B738A8C00752AC3 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				90C8F0D22B71397C00752AC3 /* LocalFeedLoader.swift */,
+				90C8F0E82B738A8C00752AC3 /* FeedCachePolicy.swift */,
 				90C8F0D42B7139C000752AC3 /* FeedStore.swift */,
 				90C8F0D82B71761100752AC3 /* LocalFeedImage.swift */,
 			);
@@ -377,6 +380,7 @@
 				90A2E46A2B640BDC0069CABA /* FeedItemsMapper.swift in Sources */,
 				900C49542B61A978008D8C0F /* FeedLoader.swift in Sources */,
 				90C8F0D72B7175BC00752AC3 /* RemoteFeedItem.swift in Sources */,
+				90C8F0E92B738A8C00752AC3 /* FeedCachePolicy.swift in Sources */,
 				90C4E1F42B629710001A51AE /* RemoteFeedLoader.swift in Sources */,
 				90C8F0D92B71761100752AC3 /* LocalFeedImage.swift in Sources */,
 				90C8F0D52B7139C000752AC3 /* FeedStore.swift in Sources */,
