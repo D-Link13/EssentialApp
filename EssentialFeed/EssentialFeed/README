@@ -136,7 +136,7 @@ Insert
     - Error (if possible to simulate, e.g., no write permission)
 
 - Retrieve
-    - Empty cache works (before something is inserted)
+    ✅ Empty cache works (before something is inserted)
     - Non-empty cache returns data
     - Non-empty cache twice returns same data (retrieve should have no side-effects)
     - Error (if possible to simulate, e.g., invalid data)
