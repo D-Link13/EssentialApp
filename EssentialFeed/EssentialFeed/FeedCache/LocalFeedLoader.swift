@@ -1,32 +1,26 @@
 import Foundation
 
 private final class FeedCachePolicy {
-    private let currentDate: () -> Date
     private let calendar = Calendar(identifier: .gregorian)
-    
-    init(currentDate: @escaping () -> Date) {
-        self.currentDate = currentDate
-    }
     
     private var maxCacheAgeInDays: Int { 7 }
     
-    func validate(_ timestamp: Date) -> Bool {
+    func validate(_ timestamp: Date, against date: Date) -> Bool {
         guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
             return false
         }
-        return maxCacheAge > currentDate()
+        return maxCacheAge > date
     }
 }
 
 public final class LocalFeedLoader {
     private let store: FeedStore
     private let currentDate: () -> Date
-    private let policy: FeedCachePolicy
+    private let policy = FeedCachePolicy()
     
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
-        self.policy = FeedCachePolicy(currentDate: currentDate)
     }
 }
 
@@ -63,7 +57,7 @@ extension LocalFeedLoader: FeedLoader {
             switch result {
             case let .failure(error):
                 completion(.failure(error))
-            case let .found(feed, timestamp) where self.policy.validate(timestamp):
+            case let .found(feed, timestamp) where self.policy.validate(timestamp, against: currentDate()):
                 completion(.success(feed.toModels()))
             case .empty, .found:
                 completion(.success([]))
@@ -81,7 +75,7 @@ extension LocalFeedLoader {
             switch result {
             case .failure:
                 self.store.deleteCachedFeed { _ in }
-            case let .found(_, timestamp) where self.policy.validate(timestamp) == false:
+            case let .found(_, timestamp) where self.policy.validate(timestamp, against: currentDate()) == false:
                 self.store.deleteCachedFeed { _ in }
             case .empty, .found:
                 break
