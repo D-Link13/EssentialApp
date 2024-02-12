@@ -82,14 +82,8 @@ final class CodableFeedStoreTests: XCTestCase {
         let sut = makeSUT()
         let feed = uniqueImageFeed()
         let timestamp = Date()
-        let exp = expectation(description: "Wait for completion")
         
-        sut.insert(feed.local, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        insert((feed.local, timestamp), to: sut)
         
         expect(sut, toRetrieve: .found(feed.local, timestamp))
     }
@@ -98,14 +92,8 @@ final class CodableFeedStoreTests: XCTestCase {
         let sut = makeSUT()
         let feed = uniqueImageFeed()
         let timestamp = Date()
-        let exp = expectation(description: "Wait for completion")
         
-        sut.insert(feed.local, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        insert((feed.local, timestamp), to: sut)
         
         expect(sut, toRetrieveTwice: .found(feed.local, timestamp))
     }
@@ -140,6 +128,17 @@ final class CodableFeedStoreTests: XCTestCase {
     private func expect(_ sut: CodableFeedStore, toRetrieveTwice expectedResult: RetrievalResult, file: StaticString = #filePath, line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
+    }
+    
+    private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: CodableFeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        let exp = expectation(description: "Wait for completion")
+        
+        sut.insert(cache.feed, timestamp: cache.timestamp) { insertionError in
+            XCTAssertNil(insertionError, "Expected feed to be inserted successfully", file: file, line: line)
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     private var testSpecificStoreURL: URL {
