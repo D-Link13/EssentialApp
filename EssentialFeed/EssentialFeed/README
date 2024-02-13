@@ -130,10 +130,10 @@
 
 // *** Feed Store implementation Inbox *** //
 
-- Insert
+✅ Insert
     ✅ To empty cache works
     ✅ To non-empty cache overrides previous value
-    - Error (if possible to simulate, e.g., no write permission)
+    ✅ Error (if possible to simulate, e.g., no write permission)
 
 ✅ Retrieve
     ✅ Empty cache works (before something is inserted)
