@@ -34,6 +34,7 @@
 		90C8F0E92B738A8C00752AC3 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8F0E82B738A8C00752AC3 /* FeedCachePolicy.swift */; };
 		90C8F0EB2B73A30A00752AC3 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8F0EA2B73A30A00752AC3 /* CodableFeedStoreTests.swift */; };
 		90ED790D2B7B9BEF001136FE /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ED790C2B7B9BEF001136FE /* CodableFeedStore.swift */; };
+		90ED790F2B7C0198001136FE /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ED790E2B7C0198001136FE /* FeedStoreSpecs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		90C8F0E82B738A8C00752AC3 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
 		90C8F0EA2B73A30A00752AC3 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
 		90ED790C2B7B9BEF001136FE /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
+		90ED790E2B7C0198001136FE /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				90C8F0DD2B7235EA00752AC3 /* LoadFeedFromCacheUseCaseTests.swift */,
 				90C8F0E12B72CA3400752AC3 /* ValidateFeedCacheUseCaseTests.swift */,
 				90C8F0EA2B73A30A00752AC3 /* CodableFeedStoreTests.swift */,
+				90ED790E2B7C0198001136FE /* FeedStoreSpecs.swift */,
 			);
 			name = FeedCache;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				90C8F0E72B72D22E00752AC3 /* SharedTestHelpers.swift in Sources */,
 				90C8F0D02B70FCA500752AC3 /* CacheFeedUseCaseTests.swift in Sources */,
 				90C8F0DE2B7235EA00752AC3 /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
+				90ED790F2B7C0198001136FE /* FeedStoreSpecs.swift in Sources */,
 				906FF5F42B684F4D009246E0 /* URLSessionHTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
