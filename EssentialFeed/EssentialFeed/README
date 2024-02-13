@@ -135,13 +135,13 @@
     - To non-empty cache overrides previous value
     - Error (if possible to simulate, e.g., no write permission)
 
-- Retrieve
+✅ Retrieve
     ✅ Empty cache works (before something is inserted)
     ✅ Empty cache twice returns empty cache
     ✅ Non-empty cache returns data
     ✅ Non-empty cache twice returns same data (retrieve should have no side-effects)
     ✅ Error returns error (if possible to simulate, e.g., invalid data)
-    - Error twice returns the same error (if possible to simulate, e.g., invalid data)
+    ✅ Error twice returns the same error (if possible to simulate, e.g., invalid data)
 
 - Delete
     - Empty cache does nothing (cache stays empty and does not fail)
