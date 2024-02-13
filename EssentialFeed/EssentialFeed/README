@@ -132,7 +132,7 @@
 
 - Insert
     ✅ To empty cache works
-    - To non-empty cache overrides previous value
+    ✅ To non-empty cache overrides previous value
     - Error (if possible to simulate, e.g., no write permission)
 
 ✅ Retrieve
