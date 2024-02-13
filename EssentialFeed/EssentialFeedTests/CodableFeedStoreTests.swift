@@ -60,6 +60,18 @@ class CodableFeedStore {
             completion(error)
         }
     }
+    
+    func deleteCachedFeed(_ completion: @escaping FeedStore.DeletionCompletion) {
+        guard FileManager.default.fileExists(atPath: storeURL.path) else {
+            return completion(nil)
+        }
+        do {
+            try FileManager.default.removeItem(at: storeURL)
+            completion(nil)
+        } catch {
+            completion(error)
+        }
+    }
 }
 
 final class CodableFeedStoreTests: XCTestCase {
@@ -147,6 +159,36 @@ final class CodableFeedStoreTests: XCTestCase {
         expect(sut, toRetrieve: .empty)
     }
     
+    func test_delete_hasNoSideEffectsOnEmptyCache() {
+        let sut = makeSUT()
+        
+        let deletionError = delete(from: sut)
+        XCTAssertNil(deletionError, "Expected feed to be deleted successfully")
+        
+        expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_delete_erasesPreviouslyCachedValues() {
+        let sut = makeSUT()
+        
+        insert((uniqueImageFeed().local, Date()), to: sut)
+        
+        let deletionError = delete(from: sut)
+        XCTAssertNil(deletionError, "Expected feed to be deleted successfully")
+        
+        expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_delete_deliversFailureOnDeletionError() {
+        let noDeletePermissionURL = cachesDirectory()
+        let sut = makeSUT(storeURL: noDeletePermissionURL)
+        
+        let deletionError = delete(from: sut)
+        XCTAssertNotNil(deletionError, "Expected feed to be deleted with a failure")
+        
+        expect(sut, toRetrieve: .empty)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(storeURL: URL? = nil, file: StaticString = #filePath, line: UInt = #line) -> CodableFeedStore {
@@ -193,8 +235,26 @@ final class CodableFeedStoreTests: XCTestCase {
         return insertionError
     }
     
+    @discardableResult
+    private func delete(from sut: CodableFeedStore, file: StaticString = #filePath, line: UInt = #line) -> Error? {
+        let exp = expectation(description: "Wait for completion")
+        
+        var deletionError: Error?
+        sut.deleteCachedFeed { receivedError in
+            deletionError = receivedError
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+        return deletionError
+    }
+    
     private var testSpecificStoreURL: URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
+        cachesDirectory().appendingPathComponent("\(type(of: self)).store")
+    }
+    
+    private func cachesDirectory() -> URL {
+        FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     }
 
     private func setupEmptyStoreState() -> ()? {
