@@ -33,6 +33,33 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_load_deliversItemsSavedOnASeparateInstance() {
+        let sutForSaving = makeSUT()
+        let sutForLoading = makeSUT()
+        let feed = uniqueImageFeed().models
+        
+        let savingExp = expectation(description: "Wait for saving completion")
+        sutForSaving.save(feed) { savingError in
+            XCTAssertNil(savingError, "Expected to save feed successfully")
+            savingExp.fulfill()
+        }
+        
+        wait(for: [savingExp], timeout: 1.0)
+        
+        let loadingExp = expectation(description: "Wait for loading completion")
+        sutForLoading.load { result in
+            switch result {
+            case let .success(loadedFeed):
+                XCTAssertEqual(loadedFeed, feed)
+            case let .failure(error):
+                XCTFail("Expected to load feed successfully, got \(error) instead")
+            }
+            loadingExp.fulfill()
+        }
+        
+        wait(for: [loadingExp], timeout: 1.0)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> LocalFeedLoader {
