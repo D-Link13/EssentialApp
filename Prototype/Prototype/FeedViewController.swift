@@ -52,28 +52,3 @@ extension FeedImageCell {
         fadeIn(with: UIImage(named: model.imageName))
     }
 }
-
-extension FeedImageCell {
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        feedImageView.alpha = 0
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        feedImageView.alpha = 0
-    }
-    
-    func fadeIn(with image: UIImage?) {
-        feedImageView.image = image
-        
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0.3) {
-                self.feedImageView.alpha = 1
-            }
-    }
-}
