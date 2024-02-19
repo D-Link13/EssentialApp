@@ -8,17 +8,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--My Feed-->
         <scene sceneID="pIY-kR-ecP">
             <objects>
-                <tableViewController id="xtk-o0-Sl8" sceneMemberID="viewController">
+                <tableViewController id="xtk-o0-Sl8" customClass="FeedViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="T3c-k7-b5Q">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="rQS-al-mrJ">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="RY7-Kn-4bf">
+                            <rect key="frame" x="0.0" y="649" width="393" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="555" id="rUL-8C-hez">
-                                <rect key="frame" x="0.0" y="50" width="393" height="555"/>
+                                <rect key="frame" x="0.0" y="66" width="393" height="555"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rUL-8C-hez" id="y3f-8U-BTc">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="555"/>
@@ -67,8 +77,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <color key="tintColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="gYM-vr-5NP" secondAttribute="bottom" id="X3W-q5-A8I"/>
                                                         <constraint firstAttribute="trailing" secondItem="gYM-vr-5NP" secondAttribute="trailing" id="bvf-fX-O1W"/>
@@ -108,7 +117,7 @@
                             <outlet property="delegate" destination="xtk-o0-Sl8" id="3LN-FG-LEC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4nc-L4-ccT"/>
+                    <navigationItem key="navigationItem" title="My Feed" id="4nc-L4-ccT"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIO-qH-KVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
