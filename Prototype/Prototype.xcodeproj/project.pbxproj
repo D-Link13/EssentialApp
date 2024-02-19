@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9088CC512B835ECB0034C306 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088CC502B835ECB0034C306 /* FeedViewController.swift */; };
+		9088CC532B8361A60034C306 /* FeedViewModel+PrototypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088CC522B8361A60034C306 /* FeedViewModel+PrototypeData.swift */; };
 		90CC04B32B81498D00F1170C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CC04B22B81498D00F1170C /* AppDelegate.swift */; };
 		90CC04B52B81498D00F1170C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CC04B42B81498D00F1170C /* SceneDelegate.swift */; };
 		90CC04BA2B81498D00F1170C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90CC04B82B81498D00F1170C /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		9088CC502B835ECB0034C306 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		9088CC522B8361A60034C306 /* FeedViewModel+PrototypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewModel+PrototypeData.swift"; sourceTree = "<group>"; };
 		90CC04AF2B81498D00F1170C /* Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CC04B22B81498D00F1170C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90CC04B42B81498D00F1170C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				90CC04B42B81498D00F1170C /* SceneDelegate.swift */,
 				90CC04B82B81498D00F1170C /* Main.storyboard */,
 				9088CC502B835ECB0034C306 /* FeedViewController.swift */,
+				9088CC522B8361A60034C306 /* FeedViewModel+PrototypeData.swift */,
 				90CC04BB2B81498E00F1170C /* Assets.xcassets */,
 				90CC04BD2B81498E00F1170C /* LaunchScreen.storyboard */,
 				90CC04C02B81498E00F1170C /* Info.plist */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90CC04B32B81498D00F1170C /* AppDelegate.swift in Sources */,
+				9088CC532B8361A60034C306 /* FeedViewModel+PrototypeData.swift in Sources */,
 				9088CC512B835ECB0034C306 /* FeedViewController.swift in Sources */,
 				90CC04B52B81498D00F1170C /* SceneDelegate.swift in Sources */,
 			);
