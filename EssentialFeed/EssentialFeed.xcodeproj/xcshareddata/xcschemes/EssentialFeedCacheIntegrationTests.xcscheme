@@ -13,7 +13,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:EssentialFeedCacheIntegrationTests/CacheIntegration.xctestplan"
+            reference = "container:EssentialFeedCacheIntegration.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
