@@ -19,6 +19,8 @@ jobs:
       with:
         xcode-version: '15.2'
 
-    - name: Build and Test
+    - name: Build and Test on Mac
       run: xcodebuild clean build test -project EssentialFeed/EssentialFeed.xcodeproj -scheme "CI_macOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
+    - name: Build and Test on iPhone
       run: xcodebuild clean build test -project EssentialFeed/EssentialFeed.xcodeproj -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
