@@ -23,6 +23,8 @@
 		906FF5F42B684F4D009246E0 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906FF5F32B684F4D009246E0 /* URLSessionHTTPClientTests.swift */; };
 		906FF5F72B694A31009246E0 /* XCTestCase+MemoryLeaksTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906FF5F62B694A31009246E0 /* XCTestCase+MemoryLeaksTracking.swift */; };
 		9084B6752B83E43B00BE49A0 /* XCTestCase+MemoryLeaksTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906FF5F62B694A31009246E0 /* XCTestCase+MemoryLeaksTracking.swift */; };
+		9084B6772B83F44C00BE49A0 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AB94E92B5EBED500034E31 /* EssentialFeed.framework */; platformFilter = ios; };
+		9084B6782B83F44C00BE49A0 /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90AB94E92B5EBED500034E31 /* EssentialFeed.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9088CC642B837EB90034C306 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9088CC5C2B837EB90034C306 /* EssentialFeediOS.framework */; };
 		9088CC692B837EB90034C306 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088CC682B837EB90034C306 /* FeedViewControllerTests.swift */; };
 		90A2E46A2B640BDC0069CABA /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2E4692B640BDC0069CABA /* FeedItemsMapper.swift */; };
@@ -61,6 +63,13 @@
 			remoteGlobalIDString = 90AB94E82B5EBED500034E31;
 			remoteInfo = EssentialFeed;
 		};
+		9084B6792B83F44C00BE49A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90AB94E02B5EBED500034E31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90AB94E82B5EBED500034E31;
+			remoteInfo = EssentialFeed;
+		};
 		9088CC652B837EB90034C306 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 90AB94E02B5EBED500034E31 /* Project object */;
@@ -83,6 +92,20 @@
 			remoteInfo = EssentialFeed;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9084B67B2B83F44C00BE49A0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9084B6782B83F44C00BE49A0 /* EssentialFeed.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		900C49512B61A8F3008D8C0F /* FeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImage.swift; sourceTree = "<group>"; };
@@ -147,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9084B6772B83F44C00BE49A0 /* EssentialFeed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +246,13 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		9084B6762B83F44C00BE49A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9088CC5D2B837EB90034C306 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +292,7 @@
 				9088CC5D2B837EB90034C306 /* EssentialFeediOS */,
 				9088CC672B837EB90034C306 /* EssentialFeediOSTests */,
 				90AB94EA2B5EBED500034E31 /* Products */,
+				9084B6762B83F44C00BE49A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -419,10 +451,12 @@
 				9088CC582B837EB90034C306 /* Sources */,
 				9088CC592B837EB90034C306 /* Frameworks */,
 				9088CC5A2B837EB90034C306 /* Resources */,
+				9084B67B2B83F44C00BE49A0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9084B67A2B83F44C00BE49A0 /* PBXTargetDependency */,
 			);
 			name = EssentialFeediOS;
 			productName = EssentialFeediOS;
@@ -691,6 +725,12 @@
 			target = 90AB94E82B5EBED500034E31 /* EssentialFeed */;
 			targetProxy = 900CEFFB2B6A8D25008A6754 /* PBXContainerItemProxy */;
 		};
+		9084B67A2B83F44C00BE49A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 90AB94E82B5EBED500034E31 /* EssentialFeed */;
+			targetProxy = 9084B6792B83F44C00BE49A0 /* PBXContainerItemProxy */;
+		};
 		9088CC662B837EB90034C306 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9088CC5B2B837EB90034C306 /* EssentialFeediOS */;
@@ -776,9 +816,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -809,9 +853,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -828,9 +876,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dlink.EssentialFeed.EssentialFeediOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -846,9 +898,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dlink.EssentialFeed.EssentialFeediOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
