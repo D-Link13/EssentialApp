@@ -50,6 +50,11 @@ extension FeedViewController {
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.dequeueReusableCell(withIdentifier: "FeedImageCell", for: indexPath)
+        let cellModel = tableModel[indexPath.row]
+        let cell = FeedImageCell()
+        cell.locationContainer.isHidden = cellModel.location == nil
+        cell.locationLabel.text = cellModel.location
+        cell.descriptionLabel.text = cellModel.description
+        return cell
     }
 }
