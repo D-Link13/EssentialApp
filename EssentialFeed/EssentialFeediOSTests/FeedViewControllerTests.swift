@@ -44,6 +44,8 @@ final class FeedViewControllerTests: XCTestCase {
     func test_loadFeedActions_requestsFeedFromLoader() {
         let (sut, loader) = makeSUT()
         
+        sut.replaceRefreshControllerWithFakeForiOS17Support()
+        
         XCTAssertEqual(loader.loadCallCount, 0, "Expect no loading requests before view is loaded")
         
         sut.simulateAppearance()
@@ -121,37 +123,9 @@ private extension FeedViewController {
     func simulateAppearance() {
         if !isViewLoaded {
             loadViewIfNeeded()
-            replaceRefreshControllerWithFakeForiOS17Support()
         }
         beginAppearanceTransition(true, animated: false)
         endAppearanceTransition()
-    }
-    
-    func replaceRefreshControllerWithFakeForiOS17Support() {
-        let fake = FakeRefreshControl()
-        
-        refreshControl?.allTargets.forEach{ target in
-            refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
-                fake.addTarget(target, action: Selector(action), for: .valueChanged)
-            }
-        }
-        
-        refreshControl = fake
-    }
-}
-
-private class FakeRefreshControl: UIRefreshControl {
-    
-    private var _isRefreshing = false
-    
-    override var isRefreshing: Bool { _isRefreshing }
-    
-    override func beginRefreshing() {
-        _isRefreshing = true
-    }
-    
-    override func endRefreshing() {
-        _isRefreshing = false
     }
 }
 
