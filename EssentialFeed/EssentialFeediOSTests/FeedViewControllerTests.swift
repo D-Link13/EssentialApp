@@ -35,7 +35,7 @@ final class FeedViewControllerTests: XCTestCase {
         sut.simulateAppearance()
         XCTAssertTrue(sut.isShowingLoadingIndicator(), "Expected loading indicator once view is loaded")
         
-        loader.completeFeedLoading()
+        loader.completeFeedLoading(at: 0)
         XCTAssertFalse(sut.isShowingLoadingIndicator(), "Expected no loading indicator after loading completion")
         
         sut.simulateAppearance()
@@ -44,7 +44,7 @@ final class FeedViewControllerTests: XCTestCase {
         sut.simulateUserInitiatedFeedReload()
         XCTAssertTrue(sut.isShowingLoadingIndicator(), "Expect loading indicator once user initiated another load")
         
-        loader.completeFeedLoading()
+        loader.completeFeedLoading(at: 1)
         XCTAssertFalse(sut.isShowingLoadingIndicator(), "Expect no loading indicator after loading completion")
     }
     
@@ -58,11 +58,11 @@ final class FeedViewControllerTests: XCTestCase {
         sut.simulateAppearance()
         assertThat(sut, isRendering: [])
         
-        loader.completeFeedLoading(with: [image0])
+        loader.completeFeedLoading(with: [image0], at: 0)
         assertThat(sut, isRendering: [image0])
         
         sut.simulateUserInitiatedFeedReload()
-        loader.completeFeedLoading(with: [image0, image1, image2, image3])
+        loader.completeFeedLoading(with: [image0, image1, image2, image3], at: 1)
         assertThat(sut, isRendering: [image0, image1, image2, image3])
     }
     
