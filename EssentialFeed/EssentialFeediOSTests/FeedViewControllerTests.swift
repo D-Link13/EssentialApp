@@ -50,10 +50,10 @@ final class FeedViewControllerTests: XCTestCase {
     
     func test_loadFeedCompletion_rendersSuccessfullyLoadedFeed() {
         let (sut, loader) = makeSUT()
-        let image0 = makeFeedImage(description: "a description", location: "a location")
-        let image1 = makeFeedImage(description: "another description")
-        let image2 = makeFeedImage(location: "another location")
-        let image3 = makeFeedImage()
+        let image0 = makeImage(description: "a description", location: "a location")
+        let image1 = makeImage(description: "another description")
+        let image2 = makeImage(location: "another location")
+        let image3 = makeImage()
         
         sut.simulateAppearance()
         assertThat(sut, isRendering: [])
@@ -68,7 +68,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     func test_loadFeedCompletion_doesNotAlterCurrentRendingStateOnError() {
         let (sut, loader) = makeSUT()
-        let image = makeFeedImage()
+        let image = makeImage()
         
         sut.simulateAppearance()
         loader.completeFeedLoading(with: [image], at: 0)
@@ -81,8 +81,8 @@ final class FeedViewControllerTests: XCTestCase {
     
     func test_loadFeedImageView_loadsImageURLWhenVisible() {
         let (sut, loader) = makeSUT()
-        let image0 = makeFeedImage(url: URL(string: "http://url-0.com")!)
-        let image1 = makeFeedImage(url: URL(string: "http://url-1.com")!)
+        let image0 = makeImage(url: URL(string: "http://url-0.com")!)
+        let image1 = makeImage(url: URL(string: "http://url-1.com")!)
         
         sut.simulateAppearance()
         loader.completeFeedLoading(with: [image0, image1])
@@ -97,8 +97,8 @@ final class FeedViewControllerTests: XCTestCase {
     
     func test_feedImageView_cancelsImageLoadingOnViewDisappearing() {
         let (sut, loader) = makeSUT()
-        let image0 = makeFeedImage(url: URL(string: "http://url-0.com")!)
-        let image1 = makeFeedImage(url: URL(string: "http://url-1.com")!)
+        let image0 = makeImage(url: URL(string: "http://url-0.com")!)
+        let image1 = makeImage(url: URL(string: "http://url-1.com")!)
         
         sut.simulateAppearance()
         loader.completeFeedLoading(with: [image0, image1])
@@ -115,7 +115,7 @@ final class FeedViewControllerTests: XCTestCase {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
-        loader.completeFeedLoading(with: [makeFeedImage(), makeFeedImage()])
+        loader.completeFeedLoading(with: [makeImage(), makeImage()])
         
         let view0 = sut.simulateFeedImageViewVisible(at: 0)
         let view1 = sut.simulateFeedImageViewVisible(at: 1)
@@ -135,7 +135,7 @@ final class FeedViewControllerTests: XCTestCase {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
-        loader.completeFeedLoading(with: [makeFeedImage(), makeFeedImage()])
+        loader.completeFeedLoading(with: [makeImage(), makeImage()])
         
         let view0 = sut.simulateFeedImageViewVisible(at: 0)
         let view1 = sut.simulateFeedImageViewVisible(at: 1)
@@ -153,6 +153,8 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(view1?.renderedImage, imageData1, "Expected image for second view once second image loading completes successfully")
     }
     
+    
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
@@ -163,7 +165,7 @@ final class FeedViewControllerTests: XCTestCase {
         return (sut, loader)
     }
     
-    private func makeFeedImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "http://any-url.com")!) -> FeedImage {
+    private func makeImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "http://any-url.com")!) -> FeedImage {
         FeedImage(id: UUID(), description: description, location: location, url: url)
     }
     
