@@ -50,12 +50,20 @@ final class FeedViewControllerTests: XCTestCase {
     
     func test_loadFeedCompletion_rendersSuccessfullyLoadedFeed() {
         let (sut, loader) = makeSUT()
-        let feedImage = makeFeedImage()
+        let image1 = makeFeedImage(description: "a description", location: "a location")
+        let image2 = makeFeedImage(description: "another description")
+        let image3 = makeFeedImage(location: "another location")
+        let image4 = makeFeedImage()
         
         sut.simulateAppearance()
-        loader.completeFeedLoading(with: [feedImage])
+        XCTAssertEqual(sut.numberOfRenderedItems(), 0)
         
+        loader.completeFeedLoading(with: [image1])
         XCTAssertEqual(sut.numberOfRenderedItems(), 1)
+        
+        sut.simulateUserInitiatedFeedReload()
+        loader.completeFeedLoading(with: [image1, image2, image3, image4])
+        XCTAssertEqual(sut.numberOfRenderedItems(), 4)
     }
     
     // MARK: - Helpers
