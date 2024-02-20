@@ -48,6 +48,16 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.isShowingLoadingIndicator(), "Expect no loading indicator after loading completion")
     }
     
+    func test_loadFeedCompletion_rendersSuccessfullyLoadedFeed() {
+        let (sut, loader) = makeSUT()
+        let feedImage = makeFeedImage()
+        
+        sut.simulateAppearance()
+        loader.completeFeedLoading(with: [feedImage])
+        
+        XCTAssertEqual(sut.numberOfRenderedItems(), 1)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
@@ -56,6 +66,10 @@ final class FeedViewControllerTests: XCTestCase {
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
+    }
+    
+    private func makeFeedImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "http://any-url.com")!) -> FeedImage {
+        FeedImage(id: UUID(), description: description, location: location, url: url)
     }
     
     class LoaderSpy: FeedLoader {
@@ -68,8 +82,8 @@ final class FeedViewControllerTests: XCTestCase {
             completions.append(completion)
         }
         
-        func completeFeedLoading(at index: Int = 0) {
-            completions[index](.success([]))
+        func completeFeedLoading(with feed: [FeedImage] = [], at index: Int = 0) {
+            completions[index](.success(feed))
         }
     }
 }
@@ -91,7 +105,13 @@ private extension FeedViewController {
         beginAppearanceTransition(true, animated: false)
         endAppearanceTransition()
     }
-}
+    
+    func numberOfRenderedItems() -> Int {
+        tableView.numberOfRows(inSection: numberOfRenderedSections())
+    }
+    
+    func numberOfRenderedSections() -> Int { 0 }
+ }
 
 private extension UIRefreshControl {
     
