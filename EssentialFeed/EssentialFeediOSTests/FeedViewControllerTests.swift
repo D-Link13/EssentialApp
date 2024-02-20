@@ -227,11 +227,10 @@ private extension FeedViewController {
     }
     
     func simulateFeedImageViewIsNotVisible(at row: Int = 0) {
-        if let view = simulateFeedImageViewVisible() {
-            let delegate = tableView.delegate
-            let index = IndexPath(row: row, section: feedImagesSection)
-            delegate?.tableView?(tableView, didEndDisplaying: view, forRowAt: index)
-        }
+        let view = simulateFeedImageViewVisible(at: row)
+        let delegate = tableView.delegate
+        let index = IndexPath(row: row, section: feedImagesSection)
+        delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: index)
     }
  }
 
