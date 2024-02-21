@@ -15,7 +15,7 @@ public final class FeedUIComposer {
     private static func adaptFeedToCellControllers(forwardingTo controller: FeedViewController, loader: ImageLoader) -> ([FeedImage]) -> Void {
         return { [weak controller] feed in
             controller?.tableModel = feed.map {
-                FeedImageCellController(model: $0, imageLoader: loader)
+                FeedImageCellController(viewModel: FeedImageViewModel(model: $0, imageLoader: loader, transfromationBlock: UIImage.init))
             }
         }
     }
