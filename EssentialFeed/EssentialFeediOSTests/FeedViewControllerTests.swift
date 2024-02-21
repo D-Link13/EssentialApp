@@ -247,7 +247,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = FeedViewController(loader: loader, imageLoader: loader)
+        let sut = FeedViewController(feedLoader: loader, imageLoader: loader)
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
@@ -353,6 +353,7 @@ private extension FeedViewController {
     func simulateAppearance() {
         if !isViewLoaded {
             loadViewIfNeeded()
+            replaceRefreshControllerWithFakeForiOS17Support()
         }
         beginAppearanceTransition(true, animated: false)
         endAppearanceTransition()
@@ -459,5 +460,36 @@ private extension UIImage {
             color.setFill()
             rendererContext.fill(rect)
         }
+    }
+}
+
+extension FeedViewController {
+    
+    func replaceRefreshControllerWithFakeForiOS17Support() {
+        let fake = FakeRefreshControl()
+        
+        refreshControl?.allTargets.forEach{ target in
+            refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
+                fake.addTarget(target, action: Selector(action), for: .valueChanged)
+            }
+        }
+        
+        refreshControl = fake
+        refreshController?.view = fake
+    }
+}
+
+private class FakeRefreshControl: UIRefreshControl {
+    
+    private var _isRefreshing = false
+    
+    override var isRefreshing: Bool { _isRefreshing }
+    
+    override func beginRefreshing() {
+        _isRefreshing = true
+    }
+    
+    override func endRefreshing() {
+        _isRefreshing = false
     }
 }

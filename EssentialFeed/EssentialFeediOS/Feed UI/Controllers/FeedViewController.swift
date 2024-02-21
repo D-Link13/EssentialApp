@@ -3,15 +3,17 @@ import EssentialFeed
 
 final public class FeedViewController: UITableViewController {
     
-    private var feedLoader: FeedLoader?
+    public var refreshController: FeedRefreshViewController?
     private var imageLoader: ImageLoader?
-    private var onViewIsAppearing: ((FeedViewController) -> Void)?
-    private var tableModel = [FeedImage]()
+    private var onViewIsAppearing: (() -> Void)?
+    private var tableModel = [FeedImage]() {
+        didSet { tableView.reloadData() }
+    }
     private var tasks = [IndexPath: FeedImageDataLoaderTask]()
     
-    public convenience init(loader: FeedLoader, imageLoader: ImageLoader) {
+    public convenience init(feedLoader: FeedLoader, imageLoader: ImageLoader) {
         self.init()
-        self.feedLoader = loader
+        self.refreshController = FeedRefreshViewController(feedLoader: feedLoader)
         self.imageLoader = imageLoader
     }
     
@@ -20,34 +22,21 @@ final public class FeedViewController: UITableViewController {
         
         tableView.prefetchDataSource = self
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        refreshControl = refreshController?.view
+        refreshController?.onRefresh = { [weak self] feed in
+            self?.tableModel = feed
+        }
         
-        onViewIsAppearing = { controller in
-            controller.load()
-            controller.onViewIsAppearing = nil
+        onViewIsAppearing = { [weak self] in
+            self?.refreshController?.refresh()
+            self?.onViewIsAppearing = nil
         }
     }
     
     public override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
         
-        onViewIsAppearing?(self)
-    }
-    
-    @objc
-    private func load() {
-        refreshControl?.beginRefreshing()
-        feedLoader?.load() { [weak self] result in
-            switch result {
-            case let .success(feed):
-                self?.tableModel = feed
-                self?.tableView.reloadData()
-            case .failure:
-                break
-            }
-            self?.refreshControl?.endRefreshing()
-        }
+        onViewIsAppearing?()
     }
     
     private func startTask(forRowAt indexPath: IndexPath) {
