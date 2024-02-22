@@ -5,12 +5,12 @@ public final class FeedUIComposer {
     private init() {}
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: ImageLoader) -> FeedViewController {
-        let presenter = FeedViewPresenter()
-        let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: feedLoader, presenter: presenter)
+        let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: feedLoader)
         let refreshController = FeedRefreshViewController(delegate: presentationAdapter)
         let feedController = FeedViewController(refreshController: refreshController)
-        presenter.loadingView = WeakRefVirtualProxy(refreshController)
-        presenter.feedView = FeedViewAdapter(controller: feedController, imageLoader: imageLoader)
+        presentationAdapter.presenter = FeedViewPresenter(
+            feedView: FeedViewAdapter(controller: feedController, imageLoader: imageLoader),
+            loadingView: WeakRefVirtualProxy(refreshController))
         return feedController
     }
 }
@@ -35,22 +35,21 @@ final class FeedViewAdapter: FeedView {
 final class FeedLoaderPresentationAdapter {
     
     private let feedLoader: FeedLoader
-    private let presenter: FeedViewPresenter
+    var presenter: FeedViewPresenter?
     
-    init(feedLoader: FeedLoader, presenter: FeedViewPresenter) {
+    init(feedLoader: FeedLoader) {
         self.feedLoader = feedLoader
-        self.presenter = presenter
     }
     
     func loadFeed() {
-        presenter.didStartLoadingFeed()
+        presenter?.didStartLoadingFeed()
         
         feedLoader.load { [weak self] result in
             switch result {
             case let .success(feed):
-                self?.presenter.didFinishLoadingFeed(with: feed)
+                self?.presenter?.didFinishLoadingFeed(with: feed)
             case let .failure(error):
-                self?.presenter.didFinishLoadingFeed(with: error)
+                self?.presenter?.didFinishLoadingFeed(with: error)
             }
         }
     }
