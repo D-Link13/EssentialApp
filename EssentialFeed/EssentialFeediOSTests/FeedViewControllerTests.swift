@@ -285,7 +285,7 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(cell.descriptionText, image.description, "Expected description text to be \(String(describing: image.description)) for image view at index (\(index)", file: file, line: line)
     }
     
-    private class LoaderSpy: FeedLoader, ImageLoader {
+    private class LoaderSpy: FeedLoader, FeedImageDataLoader {
         
         // MARK: - FeedLoader
         
@@ -322,9 +322,9 @@ final class FeedViewControllerTests: XCTestCase {
             imageRequests.map { $0.url }
         }
         private(set) var cancelledImageURLs = [URL]()
-        private(set) var imageRequests = [(url: URL, completion: (ImageLoader.Result) -> Void)]()
+        private(set) var imageRequests = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
         
-        func loadImageData(from url: URL, completion: @escaping (ImageLoader.Result) -> Void) -> FeedImageDataLoaderTask {
+        func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
             imageRequests.append((url, completion))
             return TaskSpy { self.cancelledImageURLs.append(url) }
         }
