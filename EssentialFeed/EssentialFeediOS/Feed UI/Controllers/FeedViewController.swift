@@ -45,7 +45,7 @@ extension FeedViewController {
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableModel[indexPath.row].view()
+        tableModel[indexPath.row].view(in: tableView)
     }
 
 }
