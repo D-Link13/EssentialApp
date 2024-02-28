@@ -127,6 +127,7 @@
                         <connections>
                             <outlet property="dataSource" destination="9NI-4d-QLN" id="SAL-UF-rvd"/>
                             <outlet property="delegate" destination="9NI-4d-QLN" id="xPv-me-yrW"/>
+                            <outlet property="prefetchDataSource" destination="9NI-4d-QLN" id="JOb-kW-aKU"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Feed" id="WY3-IY-Ge1"/>
