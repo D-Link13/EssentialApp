@@ -7,7 +7,7 @@ public final class FeedUIComposer {
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
         let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: MainQueueDispatchDecorator(decoratee: feedLoader))
         
-        let feedController = makeWith(
+        let feedController = makeFeedViewController(
             delegate: presentationAdapter,
             title: FeedViewPresenter.title)
         
@@ -17,7 +17,7 @@ public final class FeedUIComposer {
         return feedController
     }
     
-    private static func makeWith(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
+    private static func makeFeedViewController(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
         let storyboard = UIStoryboard(name: "Feed", bundle: Bundle(for: FeedViewController.self))
         let controller = storyboard.instantiateInitialViewController() as! FeedViewController
         controller.delegate = delegate
