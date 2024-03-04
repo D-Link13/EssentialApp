@@ -3,7 +3,7 @@ import EssentialFeed
 final class FeedLoaderPresentationAdapter {
     
     private let feedLoader: FeedLoader
-    var presenter: FeedViewPresenter?
+    var presenter: FeedPresenter?
     
     init(feedLoader: FeedLoader) {
         self.feedLoader = feedLoader
