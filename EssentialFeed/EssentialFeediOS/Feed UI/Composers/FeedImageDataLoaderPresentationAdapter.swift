@@ -16,7 +16,7 @@ final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView, Image> w
 extension FeedImageDataLoaderPresentationAdapter: FeedImageCellControllerDelegate {
     
     func didRequestImage() {
-        presenter?.didStartLodingImageData(for: model)
+        presenter?.didStartLoadingImageData(for: model)
         
         let model = self.model
         task = loader.loadImageData(from: model.url, completion: { [weak self] result in
