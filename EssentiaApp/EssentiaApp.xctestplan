@@ -9,13 +9,22 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:EssentiaApp\/EssentiaApp.xcodeproj",
+          "identifier" : "90C7AB202B99C37800A1B70F",
+          "name" : "EssentiaApp"
+        }
+      ]
+    },
     "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
       "parallelizable" : true,
       "target" : {
-        "containerPath" : "container:EssentiaApp.xcodeproj",
+        "containerPath" : "container:EssentiaApp\/EssentiaApp.xcodeproj",
         "identifier" : "90C7AB362B99C37A00A1B70F",
         "name" : "EssentiaAppTests"
       }
