@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9073F3072B99E79100D6C2E0 /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9073F3062B99E79100D6C2E0 /* FeedLoaderWithFallbackComposite.swift */; };
 		9073F3092B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9073F3082B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */; };
+		9073F30B2B9A026200D6C2E0 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9073F30A2B9A026200D6C2E0 /* FeedImageDataLoaderWithFallbackComposite.swift */; };
 		90C7AB252B99C37800A1B70F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C7AB242B99C37800A1B70F /* AppDelegate.swift */; };
 		90C7AB272B99C37800A1B70F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C7AB262B99C37800A1B70F /* SceneDelegate.swift */; };
 		90C7AB292B99C37800A1B70F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C7AB282B99C37800A1B70F /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		9005290A2B99E14400E6808E /* EssentiaApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentiaApp.xctestplan; sourceTree = SOURCE_ROOT; };
 		9073F3062B99E79100D6C2E0 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		9073F3082B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
+		9073F30A2B9A026200D6C2E0 /* FeedImageDataLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		90C7AB212B99C37800A1B70F /* EssentiaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentiaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C7AB242B99C37800A1B70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90C7AB262B99C37800A1B70F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				90C7AB242B99C37800A1B70F /* AppDelegate.swift */,
 				90C7AB262B99C37800A1B70F /* SceneDelegate.swift */,
 				9073F3062B99E79100D6C2E0 /* FeedLoaderWithFallbackComposite.swift */,
+				9073F30A2B9A026200D6C2E0 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 				90C7AB282B99C37800A1B70F /* ViewController.swift */,
 				90C7AB2A2B99C37800A1B70F /* Main.storyboard */,
 				90C7AB2D2B99C37A00A1B70F /* Assets.xcassets */,
@@ -244,6 +247,7 @@
 				90C7AB252B99C37800A1B70F /* AppDelegate.swift in Sources */,
 				9073F3072B99E79100D6C2E0 /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				90C7AB272B99C37800A1B70F /* SceneDelegate.swift in Sources */,
+				9073F30B2B9A026200D6C2E0 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
