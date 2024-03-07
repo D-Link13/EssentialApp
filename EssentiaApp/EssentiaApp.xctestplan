@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "B4786586-3427-431D-AB65-21EEB0D8431B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:EssentiaApp.xcodeproj",
+        "identifier" : "90C7AB362B99C37A00A1B70F",
+        "name" : "EssentiaAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}
