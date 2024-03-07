@@ -24,10 +24,10 @@ public final class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader
         task.wrapped = primary.loadImageData(from: url) { [weak self] result in
             
             switch result {
-            case let .success(data):
+            case .success:
                 completion(result)
                 
-            case let .failure(error):
+            case .failure:
                 task.wrapped = self?.fallback.loadImageData(from: url, completion: completion)
             }
             
