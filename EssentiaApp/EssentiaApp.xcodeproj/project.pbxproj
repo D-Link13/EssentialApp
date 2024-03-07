@@ -13,7 +13,7 @@
 		90C7AB2C2B99C37800A1B70F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C7AB2A2B99C37800A1B70F /* Main.storyboard */; };
 		90C7AB2E2B99C37A00A1B70F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90C7AB2D2B99C37A00A1B70F /* Assets.xcassets */; };
 		90C7AB312B99C37A00A1B70F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C7AB2F2B99C37A00A1B70F /* LaunchScreen.storyboard */; };
-		90C7AB3C2B99C37A00A1B70F /* EssentiaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C7AB3B2B99C37A00A1B70F /* EssentiaAppTests.swift */; };
+		90C7AB3C2B99C37A00A1B70F /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C7AB3B2B99C37A00A1B70F /* FeedLoaderWithFallbackComposite.swift */; };
 		90C7AB572B99C87B00A1B70F /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C7AB552B99C87B00A1B70F /* EssentialFeed.framework */; };
 		90C7AB582B99C87B00A1B70F /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90C7AB552B99C87B00A1B70F /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		90C7AB592B99C87B00A1B70F /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C7AB562B99C87B00A1B70F /* EssentialFeediOS.framework */; };
@@ -46,7 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9005290A2B99E14400E6808E /* EssentiaApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = EssentiaApp.xctestplan; sourceTree = SOURCE_ROOT; };
+		9005290A2B99E14400E6808E /* EssentiaApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentiaApp.xctestplan; sourceTree = SOURCE_ROOT; };
 		90C7AB212B99C37800A1B70F /* EssentiaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentiaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C7AB242B99C37800A1B70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90C7AB262B99C37800A1B70F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		90C7AB302B99C37A00A1B70F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90C7AB322B99C37A00A1B70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90C7AB372B99C37A00A1B70F /* EssentiaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentiaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		90C7AB3B2B99C37A00A1B70F /* EssentiaAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaAppTests.swift; sourceTree = "<group>"; };
+		90C7AB3B2B99C37A00A1B70F /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		90C7AB552B99C87B00A1B70F /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C7AB562B99C87B00A1B70F /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,7 +118,7 @@
 		90C7AB3A2B99C37A00A1B70F /* EssentiaAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				90C7AB3B2B99C37A00A1B70F /* EssentiaAppTests.swift */,
+				90C7AB3B2B99C37A00A1B70F /* FeedLoaderWithFallbackComposite.swift */,
 			);
 			path = EssentiaAppTests;
 			sourceTree = "<group>";
@@ -244,7 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90C7AB3C2B99C37A00A1B70F /* EssentiaAppTests.swift in Sources */,
+				90C7AB3C2B99C37A00A1B70F /* FeedLoaderWithFallbackComposite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
