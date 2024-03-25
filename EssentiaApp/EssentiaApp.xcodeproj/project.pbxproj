@@ -27,6 +27,7 @@
 		90C7AB592B99C87B00A1B70F /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C7AB562B99C87B00A1B70F /* EssentialFeediOS.framework */; };
 		90C7AB5A2B99C87B00A1B70F /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90C7AB562B99C87B00A1B70F /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		90CF31C12BB16CE600F69BD0 /* FeedLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C02BB16CE600F69BD0 /* FeedLoaderCacheDecorator.swift */; };
+		90CF31C32BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C22BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		90C7AB552B99C87B00A1B70F /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C7AB562B99C87B00A1B70F /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CF31C02BB16CE600F69BD0 /* FeedLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecorator.swift; sourceTree = "<group>"; };
+		90CF31C22BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				9073F30C2B9A02CB00D6C2E0 /* Helpers */,
 				90C7AB3B2B99C37A00A1B70F /* FeedLoaderWithFallbackComposite.swift */,
 				9073F3132B9B206F00D6C2E0 /* FeedLoaderCacheDecorator.swift */,
+				90CF31C22BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */,
 				9073F3082B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
 			);
 			path = EssentiaAppTests;
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9073F3102B9A033A00D6C2E0 /* SharedTestHelpers.swift in Sources */,
+				90CF31C32BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */,
 				9073F3182B9B251600D6C2E0 /* XCTestCase+FeedLoader.swift in Sources */,
 				9073F3092B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				90C7AB3C2B99C37A00A1B70F /* FeedLoaderWithFallbackComposite.swift in Sources */,
