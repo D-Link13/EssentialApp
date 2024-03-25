@@ -56,6 +56,17 @@
                ReferencedContainer = "container:EssentiaApp/EssentiaApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "90CF31CF2BB19AD800F69BD0"
+               BuildableName = "EssentiaAppUIAcceptanceTests.xctest"
+               BlueprintName = "EssentiaAppUIAcceptanceTests"
+               ReferencedContainer = "container:EssentiaApp/EssentiaApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

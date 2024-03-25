@@ -31,10 +31,18 @@
 		90CF31C52BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C42BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift */; };
 		90CF31C72BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */; };
 		90CF31CB2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31CA2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */; };
+		90CF31D32BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31D22BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		90C7AB382B99C37A00A1B70F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90C7AB192B99C37800A1B70F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90C7AB202B99C37800A1B70F;
+			remoteInfo = EssentiaApp;
+		};
+		90CF31D62BB19AD800F69BD0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 90C7AB192B99C37800A1B70F /* Project object */;
 			proxyType = 1;
@@ -84,6 +92,8 @@
 		90CF31C42BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderSpy.swift; sourceTree = "<group>"; };
 		90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderTestCase.swift; sourceTree = "<group>"; };
 		90CF31CA2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderCacheDecorator.swift; sourceTree = "<group>"; };
+		90CF31D02BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentiaAppUIAcceptanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90CF31D22BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaAppUIAcceptanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		90C7AB342B99C37A00A1B70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90CF31CD2BB19AD800F69BD0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -124,6 +141,7 @@
 			children = (
 				90C7AB232B99C37800A1B70F /* EssentiaApp */,
 				90C7AB3A2B99C37A00A1B70F /* EssentiaAppTests */,
+				90CF31D12BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests */,
 				90C7AB222B99C37800A1B70F /* Products */,
 				90C7AB542B99C87B00A1B70F /* Frameworks */,
 			);
@@ -134,6 +152,7 @@
 			children = (
 				90C7AB212B99C37800A1B70F /* EssentiaApp.app */,
 				90C7AB372B99C37A00A1B70F /* EssentiaAppTests.xctest */,
+				90CF31D02BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +196,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		90CF31D12BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests */ = {
+			isa = PBXGroup;
+			children = (
+				90CF31D22BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.swift */,
+			);
+			path = EssentiaAppUIAcceptanceTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,6 +243,24 @@
 			productReference = 90C7AB372B99C37A00A1B70F /* EssentiaAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		90CF31CF2BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90CF31DA2BB19AD800F69BD0 /* Build configuration list for PBXNativeTarget "EssentiaAppUIAcceptanceTests" */;
+			buildPhases = (
+				90CF31CC2BB19AD800F69BD0 /* Sources */,
+				90CF31CD2BB19AD800F69BD0 /* Frameworks */,
+				90CF31CE2BB19AD800F69BD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90CF31D72BB19AD800F69BD0 /* PBXTargetDependency */,
+			);
+			name = EssentiaAppUIAcceptanceTests;
+			productName = EssentiaAppUIAcceptanceTests;
+			productReference = 90CF31D02BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -230,6 +275,10 @@
 						CreatedOnToolsVersion = 15.2;
 					};
 					90C7AB362B99C37A00A1B70F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 90C7AB202B99C37800A1B70F;
+					};
+					90CF31CF2BB19AD800F69BD0 = {
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 90C7AB202B99C37800A1B70F;
 					};
@@ -250,6 +299,7 @@
 			targets = (
 				90C7AB202B99C37800A1B70F /* EssentiaApp */,
 				90C7AB362B99C37A00A1B70F /* EssentiaAppTests */,
+				90CF31CF2BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -266,6 +316,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		90C7AB352B99C37A00A1B70F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90CF31CE2BB19AD800F69BD0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -306,6 +363,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		90CF31CC2BB19AD800F69BD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90CF31D32BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -313,6 +378,11 @@
 			isa = PBXTargetDependency;
 			target = 90C7AB202B99C37800A1B70F /* EssentiaApp */;
 			targetProxy = 90C7AB382B99C37A00A1B70F /* PBXContainerItemProxy */;
+		};
+		90CF31D72BB19AD800F69BD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90C7AB202B99C37800A1B70F /* EssentiaApp */;
+			targetProxy = 90CF31D62BB19AD800F69BD0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -551,6 +621,40 @@
 			};
 			name = Release;
 		};
+		90CF31D82BB19AD800F69BD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35SF9B6Y3C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dlink.EssentiaAppUIAcceptanceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EssentiaApp;
+			};
+			name = Debug;
+		};
+		90CF31D92BB19AD800F69BD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35SF9B6Y3C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dlink.EssentiaAppUIAcceptanceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EssentiaApp;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -577,6 +681,15 @@
 			buildConfigurations = (
 				90C7AB4F2B99C37A00A1B70F /* Debug */,
 				90C7AB502B99C37A00A1B70F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90CF31DA2BB19AD800F69BD0 /* Build configuration list for PBXNativeTarget "EssentiaAppUIAcceptanceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90CF31D82BB19AD800F69BD0 /* Debug */,
+				90CF31D92BB19AD800F69BD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
