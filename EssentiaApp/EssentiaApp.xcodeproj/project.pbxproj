@@ -30,6 +30,7 @@
 		90CF31C32BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C22BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */; };
 		90CF31C52BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C42BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift */; };
 		90CF31C72BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */; };
+		90CF31CB2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31CA2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		90CF31C22BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		90CF31C42BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderSpy.swift; sourceTree = "<group>"; };
 		90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderTestCase.swift; sourceTree = "<group>"; };
+		90CF31CA2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				90C7AB2D2B99C37A00A1B70F /* Assets.xcassets */,
 				90C7AB2F2B99C37A00A1B70F /* LaunchScreen.storyboard */,
 				90C7AB322B99C37A00A1B70F /* Info.plist */,
+				90CF31CA2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */,
 			);
 			path = EssentiaApp;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				90CF31C12BB16CE600F69BD0 /* FeedLoaderCacheDecorator.swift in Sources */,
 				90C7AB272B99C37800A1B70F /* SceneDelegate.swift in Sources */,
 				9073F30B2B9A026200D6C2E0 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
+				90CF31CB2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
