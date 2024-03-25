@@ -29,6 +29,7 @@
 		90CF31C12BB16CE600F69BD0 /* FeedLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C02BB16CE600F69BD0 /* FeedLoaderCacheDecorator.swift */; };
 		90CF31C32BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C22BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */; };
 		90CF31C52BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C42BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift */; };
+		90CF31C72BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		90CF31C02BB16CE600F69BD0 /* FeedLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		90CF31C22BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		90CF31C42BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderSpy.swift; sourceTree = "<group>"; };
+		90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				9073F3172B9B251600D6C2E0 /* XCTestCase+FeedLoader.swift */,
 				9073F30F2B9A033A00D6C2E0 /* SharedTestHelpers.swift */,
 				9073F3152B9B23DC00D6C2E0 /* FeedLoaderStub.swift */,
+				90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			files = (
 				9073F3102B9A033A00D6C2E0 /* SharedTestHelpers.swift in Sources */,
 				90CF31C32BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */,
+				90CF31C72BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift in Sources */,
 				9073F3182B9B251600D6C2E0 /* XCTestCase+FeedLoader.swift in Sources */,
 				9073F3092B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				90CF31C52BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift in Sources */,
