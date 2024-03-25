@@ -71,6 +71,14 @@
         "identifier" : "9088CC622B837EB90034C306",
         "name" : "EssentialFeediOSTests"
       }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:EssentiaApp\/EssentiaApp.xcodeproj",
+        "identifier" : "90CF31CF2BB19AD800F69BD0",
+        "name" : "EssentiaAppUIAcceptanceTests"
+      }
     }
   ],
   "version" : 1
