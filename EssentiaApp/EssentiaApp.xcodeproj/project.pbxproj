@@ -33,6 +33,7 @@
 		90CF31CB2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31CA2BB18BC600F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */; };
 		90CF31D32BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31D22BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.swift */; };
 		90CF31DC2BB1BE1E00F69BD0 /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31DB2BB1BE1E00F69BD0 /* DebuggingSceneDelegate.swift */; };
+		90CF31DE2BB1DA5B00F69BD0 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31DD2BB1DA5B00F69BD0 /* SceneDelegateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		90CF31D02BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentiaAppUIAcceptanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CF31D22BB19AD800F69BD0 /* EssentiaAppUIAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaAppUIAcceptanceTests.swift; sourceTree = "<group>"; };
 		90CF31DB2BB1BE1E00F69BD0 /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
+		90CF31DD2BB1DA5B00F69BD0 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				9073F3132B9B206F00D6C2E0 /* FeedLoaderCacheDecorator.swift */,
 				90CF31C22BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift */,
 				9073F3082B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
+				90CF31DD2BB1DA5B00F69BD0 /* SceneDelegateTests.swift */,
 			);
 			path = EssentiaAppTests;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				90CF31C32BB16ED400F69BD0 /* FeedImageDataLoaderCacheDecorator.swift in Sources */,
 				90CF31C72BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift in Sources */,
 				9073F3182B9B251600D6C2E0 /* XCTestCase+FeedLoader.swift in Sources */,
+				90CF31DE2BB1DA5B00F69BD0 /* SceneDelegateTests.swift in Sources */,
 				9073F3092B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				90CF31C52BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift in Sources */,
 				90C7AB3C2B99C37A00A1B70F /* FeedLoaderWithFallbackComposite.swift in Sources */,
