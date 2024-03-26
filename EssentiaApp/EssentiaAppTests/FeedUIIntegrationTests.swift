@@ -2,6 +2,7 @@ import XCTest
 import UIKit
 import EssentialFeed
 import EssentialFeediOS
+@testable import EssentiaApp
 
 final class FeedUIIntegrationTests: XCTestCase {
     
