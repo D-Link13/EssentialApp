@@ -47,6 +47,7 @@
 		90CF31F82BB1DE6900F69BD0 /* FeedViewContoller+UIRefreshControlForiOS17.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31EC2BB1DE6900F69BD0 /* FeedViewContoller+UIRefreshControlForiOS17.swift */; };
 		90CF31FA2BB1DEA500F69BD0 /* FeedUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31F92BB1DEA500F69BD0 /* FeedUIIntegrationTests.swift */; };
 		90CF31FC2BB1E24600F69BD0 /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31FB2BB1E24600F69BD0 /* FeedAcceptanceTests.swift */; };
+		90CF31FE2BB317AF00F69BD0 /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31FD2BB317AF00F69BD0 /* HTTPClientStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		90CF31F12BB1DE6900F69BD0 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		90CF31F92BB1DEA500F69BD0 /* FeedUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIIntegrationTests.swift; sourceTree = "<group>"; };
 		90CF31FB2BB1E24600F69BD0 /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
+		90CF31FD2BB317AF00F69BD0 /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				9073F30F2B9A033A00D6C2E0 /* SharedTestHelpers.swift */,
 				9073F3152B9B23DC00D6C2E0 /* FeedLoaderStub.swift */,
 				90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */,
+				90CF31FD2BB317AF00F69BD0 /* HTTPClientStub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				90CF31C72BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift in Sources */,
 				90CF31F82BB1DE6900F69BD0 /* FeedViewContoller+UIRefreshControlForiOS17.swift in Sources */,
 				9073F3182B9B251600D6C2E0 /* XCTestCase+FeedLoader.swift in Sources */,
+				90CF31FE2BB317AF00F69BD0 /* HTTPClientStub.swift in Sources */,
 				90CF31DE2BB1DA5B00F69BD0 /* SceneDelegateTests.swift in Sources */,
 				9073F3092B99F4B900D6C2E0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				90CF31C52BB1831E00F69BD0 /* FeedImageDataLoaderSpy.swift in Sources */,
