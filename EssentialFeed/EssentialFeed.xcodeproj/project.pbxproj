@@ -89,6 +89,7 @@
 		90DD63F32B7EA41800C47D08 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C8F0E62B72D22E00752AC3 /* SharedTestHelpers.swift */; };
 		90E47FAF2BCD5FDA00137864 /* UITableView+HeaderSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E47FAE2BCD5FDA00137864 /* UITableView+HeaderSizing.swift */; };
 		90E47FB22BCDB37200137864 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E47FB12BCDB37200137864 /* UIViewController+Snapshot.swift */; };
+		90E47FB62BCDB43800137864 /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E47FB52BCDB43800137864 /* XCTestCase+Snapshot.swift */; };
 		90ED790F2B7C0198001136FE /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ED790E2B7C0198001136FE /* FeedStoreSpecs.swift */; };
 		90FF2E292B8E441F005573D7 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FF2E282B8E441F005573D7 /* Feed.storyboard */; };
 /* End PBXBuildFile section */
@@ -228,6 +229,7 @@
 		90DD63F02B7E9C5E00C47D08 /* EssentialFeedCacheIntegration.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeedCacheIntegration.xctestplan; sourceTree = "<group>"; };
 		90E47FAE2BCD5FDA00137864 /* UITableView+HeaderSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+HeaderSizing.swift"; sourceTree = "<group>"; };
 		90E47FB12BCDB37200137864 /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
+		90E47FB52BCDB43800137864 /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		90ED790E2B7C0198001136FE /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 		90FF2E282B8E441F005573D7 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -584,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				90E47FB12BCDB37200137864 /* UIViewController+Snapshot.swift */,
+				90E47FB52BCDB43800137864 /* XCTestCase+Snapshot.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 			files = (
 				9084B6752B83E43B00BE49A0 /* XCTestCase+MemoryLeaksTracking.swift in Sources */,
 				90E47FB22BCDB37200137864 /* UIViewController+Snapshot.swift in Sources */,
+				90E47FB62BCDB43800137864 /* XCTestCase+Snapshot.swift in Sources */,
 				90CF32032BB32A2F00F69BD0 /* FeedSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
