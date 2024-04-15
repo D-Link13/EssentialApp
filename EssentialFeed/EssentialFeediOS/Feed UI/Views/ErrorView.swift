@@ -13,10 +13,16 @@ public final class ErrorView: UIView {
 
         button.setTitle(nil, for: .normal)
         alpha = 0
+        adjustButtonTitleLabel()
     }
 
     private var isVisible: Bool {
         return alpha > 0
+    }
+    
+    private func adjustButtonTitleLabel() {
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
     }
 
     private func setMessageAnimated(_ message: String?) {
