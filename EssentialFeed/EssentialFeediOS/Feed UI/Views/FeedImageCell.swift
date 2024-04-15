@@ -21,4 +21,14 @@ final public class FeedImageCell: UITableViewCell {
         
         onReuse?()
     }
+    
+    private func adjustButtonTitleLabel() {
+        feedImageRetryButton.titleLabel?.font = .systemFont(ofSize: 60)
+    }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        adjustButtonTitleLabel()
+    }
 }
