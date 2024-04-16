@@ -49,6 +49,7 @@
 		90CF31FC2BB1E24600F69BD0 /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31FB2BB1E24600F69BD0 /* FeedAcceptanceTests.swift */; };
 		90CF31FE2BB317AF00F69BD0 /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31FD2BB317AF00F69BD0 /* HTTPClientStub.swift */; };
 		90CF32002BB3183F00F69BD0 /* InMemoryFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF31FF2BB3183F00F69BD0 /* InMemoryFeedStore.swift */; };
+		90E47FB82BCE848900137864 /* UIView+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E47FB72BCE848900137864 /* UIView+TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		90CF31FB2BB1E24600F69BD0 /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
 		90CF31FD2BB317AF00F69BD0 /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
 		90CF31FF2BB3183F00F69BD0 /* InMemoryFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryFeedStore.swift; sourceTree = "<group>"; };
+		90E47FB72BCE848900137864 /* UIView+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TestHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				90CF31C62BB183EC00F69BD0 /* FeedImageDataLoaderTestCase.swift */,
 				90CF31FD2BB317AF00F69BD0 /* HTTPClientStub.swift */,
 				90CF31FF2BB3183F00F69BD0 /* InMemoryFeedStore.swift */,
+				90E47FB72BCE848900137864 /* UIView+TestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				90CF31F42BB1DE6900F69BD0 /* UIButton+TestHelpers.swift in Sources */,
 				9073F30E2B9A02E400D6C2E0 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				90CF31F72BB1DE6900F69BD0 /* FeedImageCell+TestHelpers.swift in Sources */,
+				90E47FB82BCE848900137864 /* UIView+TestHelpers.swift in Sources */,
 				90CF31F52BB1DE6900F69BD0 /* FeedViewController+TestHelpers.swift in Sources */,
 				90CF31F62BB1DE6900F69BD0 /* XCTestCase+Localized.swift in Sources */,
 				90CF31FA2BB1DEA500F69BD0 /* FeedUIIntegrationTests.swift in Sources */,
