@@ -1,7 +1,7 @@
 # EssentialApp
 Essential App case study
 
-![CI](https://github.com/D-Link13/EssentialApp/actions/workflows/CI.yml/badge.svg)
+![CI](https://github.com/D-Link13/EssentialApp/actions/workflows/CI-macOS.yml/badge.svg)
 
 
 // *** BDD Stories *** //
