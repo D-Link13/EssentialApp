@@ -1,6 +1,6 @@
 import Foundation
 
-public final class RemoteImageCommentsLoader: FeedLoader {
+public final class RemoteImageCommentsLoader {
     private let client: HTTPClient
     private let url: URL
     
@@ -9,7 +9,7 @@ public final class RemoteImageCommentsLoader: FeedLoader {
         case invalidData
     }
     
-    public typealias Result = FeedLoader.Result
+    public typealias Result = Swift.Result<[ImageComment], Swift.Error>
     
     public init(client: HTTPClient, url: URL) {
         self.client = client
@@ -31,16 +31,9 @@ public final class RemoteImageCommentsLoader: FeedLoader {
     private static func map(data: Data, response: HTTPURLResponse) -> RemoteImageCommentsLoader.Result {
         do {
             let remoteItems = try ImageCommentsMapper.map(data, response)
-            return .success(remoteItems.toItems())
+            return .success(remoteItems)
         } catch {
             return .failure(error)
         }
-    }
-}
-
-private extension Array where Element == RemoteFeedItem {
-    
-    func toItems() -> [FeedImage] {
-        map { FeedImage(id: $0.id, description: $0.description, location: $0.location, url: $0.image) }
     }
 }

@@ -70,8 +70,14 @@ final class LoadImageCommentsFromRemoteUseCase: XCTestCase {
     func test_load_deliversItemsOn2xxHTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
 
-        let item1 = makeFeedImage()
-        let item2 = makeFeedImage(description: "a description", location: "a location")
+        let item1 = makeImageComment(
+            message: "a message",
+            createdAt: (Date(timeIntervalSince1970: 1645653600), "2022-02-23T22:00:00Z"),
+            username: "a username")
+        let item2 = makeImageComment(
+            message: "another message",
+            createdAt: (Date(timeIntervalSince1970: 1392890400), "2014-02-20T10:00:00Z"),
+            username: "another username")
         
         let samples = [200, 201, 250, 280, 299]
         samples.enumerated().forEach { index, code in
@@ -113,14 +119,16 @@ final class LoadImageCommentsFromRemoteUseCase: XCTestCase {
         return .failure(error)
     }
     
-    private func makeFeedImage(description: String? = nil, location: String? = nil, imageURL: URL = URL(string: "http://image-url.com")!) -> (model: FeedImage, json: [String: Any]) {
-        let model = FeedImage(id: UUID(), description: description, location: location, url: imageURL)
-        let json = [
+    private func makeImageComment(message: String, createdAt: (date: Date, iso8601String: String), username: String) -> (model: ImageComment, json: [String: Any]) {
+        let model = ImageComment(id: UUID(), message: message, createdAt: createdAt.date, username: username)
+        let json: [String: Any] = [
             "id": model.id.uuidString,
-            "description": model.description,
-            "location": model.location,
-            "image": model.url.absoluteString
-        ].compactMapValues { $0 }
+            "message": message,
+            "created_at": createdAt.iso8601String,
+            "author": [
+                "username": username
+            ]
+        ]
         return (model, json)
     }
     
