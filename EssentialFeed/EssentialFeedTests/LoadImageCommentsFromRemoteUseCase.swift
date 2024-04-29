@@ -36,10 +36,10 @@ final class LoadImageCommentsFromRemoteUseCase: XCTestCase {
         })
     }
     
-    func test_load_deliversErrorOnNon200HTTPResponse() {
+    func test_load_deliversErrorOnNon2xxHTTPResponse() {
         let (sut, client) = makeSUT()
         
-        let samples = [199, 201, 300, 400, 500]
+        let samples = [199, 150, 300, 400, 500]
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: failure(.invalidData), when: {
                 client.complete(withStatusCode: code, data: makeItemsJSON([]), at: index)
@@ -55,23 +55,30 @@ final class LoadImageCommentsFromRemoteUseCase: XCTestCase {
         })
     }
 
-    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSON() {
+    func test_load_deliversNoItemsOn2xxHTTPResponseWithEmptyJSON() {
         let (sut, client) = makeSUT()
-        expect(sut, toCompleteWith: .success([])) {
-            let emptyJSON = makeItemsJSON([])
-            client.complete(withStatusCode: 200, data: emptyJSON)
+        
+        let samples = [200, 201, 250, 280, 299]
+        samples.enumerated().forEach { index, code in
+            expect(sut, toCompleteWith: .success([])) {
+                let emptyJSON = makeItemsJSON([])
+                client.complete(withStatusCode: code, data: emptyJSON, at: index)
+            }
         }
     }
     
-    func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
+    func test_load_deliversItemsOn2xxHTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
 
         let item1 = makeFeedImage()
         let item2 = makeFeedImage(description: "a description", location: "a location")
         
-        expect(sut, toCompleteWith: .success([item1.model, item2.model])) {
-            let json = makeItemsJSON([item1.json, item2.json])
-            client.complete(withStatusCode: 200, data: json)
+        let samples = [200, 201, 250, 280, 299]
+        samples.enumerated().forEach { index, code in
+            expect(sut, toCompleteWith: .success([item1.model, item2.model])) {
+                let json = makeItemsJSON([item1.json, item2.json])
+                client.complete(withStatusCode: code, data: json, at: index)
+            }
         }
     }
     
