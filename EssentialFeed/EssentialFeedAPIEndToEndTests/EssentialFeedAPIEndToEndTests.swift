@@ -37,7 +37,7 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
     // MARK: - Helpers
     
     private func getFeedResult(file: StaticString = #filePath, line: UInt = #line) -> FeedLoader.Result? {
-        let loader = RemoteFeedLoader(client: ephemeralClient(), url: feedTestServerURL)
+        let loader = RemoteLoader(client: ephemeralClient(), url: feedTestServerURL, mapper: FeedItemsMapper.map)
         trackForMemoryLeaks(loader, file: file, line: line)
         
         let exp = expectation(description: "Wait for completion")
