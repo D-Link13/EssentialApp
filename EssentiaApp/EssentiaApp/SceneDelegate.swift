@@ -33,10 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         LocalFeedImageDataLoader(store: store)
     }()
     
-    private lazy var remoteImageLoader: RemoteFeedImageDataLoader = {
-        RemoteFeedImageDataLoader(client: httpClient)
-    }()
-    
     convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
         self.init()
         self.httpClient = httpClient
@@ -79,8 +75,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         localFeedImageLoader
             .loadImageDataPublisher(from: url)
             .fallback(to: {
-                self.remoteImageLoader
-                    .loadImageDataPublisher(from: url)
+                self.httpClient
+                    .getPublisher(from: url)
+                    .tryMap(FeedImageDataMapper.map)
                     .caching(to: self.localFeedImageLoader, using: url)
             })
     }
