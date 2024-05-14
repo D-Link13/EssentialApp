@@ -1,20 +1,19 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "FEED_VIEW_TITLE" : {
-      "comment" : "Title for the feed view",
+    "GENERIC_CONNECTION_ERROR" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "My Feed"
+            "value" : "Couldn't connect to server"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Моя стрічка"
+            "value" : "Немає зʼєднання із сервером"
           }
         }
       }
