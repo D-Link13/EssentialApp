@@ -9,6 +9,12 @@
             "state" : "translated",
             "value" : "Comments"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коментарі"
+          }
         }
       }
     }
