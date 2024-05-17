@@ -98,20 +98,20 @@ extension FeedViewController: UITableViewDataSourcePrefetching {
     }
 }
 
-// MARK: - FeedLoadingView
+// MARK: - ResourceLoadingView
 
-extension FeedViewController: FeedLoadingView {
+extension FeedViewController: ResourceLoadingView {
     
-    public func display(_ viewModel: FeedLoadingViewModel) {
+    public func display(_ viewModel: ResourceLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
 }
 
-// MARK: - FeedErrorView
+// MARK: - ResourceErrorView
 
-extension FeedViewController: FeedErrorView {
+extension FeedViewController: ResourceErrorView {
     
-    public func display(_ viewModel: FeedErrorViewModel) {
+    public func display(_ viewModel: ResourceErrorViewModel) {
         errorView?.message = viewModel.message
     }
 }

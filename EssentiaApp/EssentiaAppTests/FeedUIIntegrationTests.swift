@@ -12,7 +12,7 @@ final class FeedUIIntegrationTests: XCTestCase {
         
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.title, localized("FEED_VIEW_TITLE"))
+        XCTAssertEqual(sut.title, feedTitle)
     }
     
     func test_loadFeedActions_requestsFeedFromLoader() {
@@ -112,7 +112,7 @@ final class FeedUIIntegrationTests: XCTestCase {
         XCTAssertEqual(sut.errorMessage, nil)
         
         loader.completeFeedLoadingWithError(at: 0)
-        XCTAssertEqual(sut.errorMessage, localized("FEED_VIEW_CONNECTION_ERROR"))
+        XCTAssertEqual(sut.errorMessage, loadError)
         
         sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(sut.errorMessage, nil)
@@ -365,10 +365,16 @@ final class FeedUIIntegrationTests: XCTestCase {
         XCTAssertEqual(cell.descriptionText, image.description, "Expected description text to be \(String(describing: image.description)) for image view at index (\(index)", file: file, line: line)
     }
     
-    private func localized(_ key: String, file: StaticString = #filePath, line: UInt = #line) -> String {
-        let table = "Feed"
-        let bundle = Bundle(for: FeedPresenter.self)
-        return localized(key, forBundle: bundle, inTable: table)
+    private class DummyView: ResourceView {
+        func display(_ viewModel: Any) {}
+    }
+    
+    private var loadError: String {
+        LoadResourcePresenter<Any, DummyView>.loadError
+    }
+    
+    private var feedTitle: String {
+        FeedPresenter.title
     }
     
     private func anyImageData() -> Data {
