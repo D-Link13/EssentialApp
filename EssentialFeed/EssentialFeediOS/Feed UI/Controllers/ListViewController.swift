@@ -11,7 +11,7 @@ public protocol CellController {
     func cancel()
 }
 
-final public class FeedViewController: UITableViewController {
+final public class ListViewController: UITableViewController {
     
     @IBOutlet private(set) public var errorView: ErrorView?
     public var delegate: FeedViewControllerDelegate?
@@ -67,7 +67,7 @@ final public class FeedViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 
-extension FeedViewController {
+extension ListViewController {
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableModel.count
@@ -81,7 +81,7 @@ extension FeedViewController {
 
 // MARK: - UITableViewDelegate
 
-extension FeedViewController {
+extension ListViewController {
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cancelCellControllerLoad(forRowAt: indexPath)
@@ -91,7 +91,7 @@ extension FeedViewController {
 
 // MARK: - UITableViewDataSourcePrefetching
 
-extension FeedViewController: UITableViewDataSourcePrefetching {
+extension ListViewController: UITableViewDataSourcePrefetching {
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
@@ -106,7 +106,7 @@ extension FeedViewController: UITableViewDataSourcePrefetching {
 
 // MARK: - ResourceLoadingView
 
-extension FeedViewController: ResourceLoadingView {
+extension ListViewController: ResourceLoadingView {
     
     public func display(_ viewModel: ResourceLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
@@ -115,7 +115,7 @@ extension FeedViewController: ResourceLoadingView {
 
 // MARK: - ResourceErrorView
 
-extension FeedViewController: ResourceErrorView {
+extension ListViewController: ResourceErrorView {
     
     public func display(_ viewModel: ResourceErrorViewModel) {
         errorView?.message = viewModel.message
