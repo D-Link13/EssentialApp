@@ -7,6 +7,11 @@ public protocol CellController {
     func cancel()
 }
 
+public extension CellController {
+    func prefetch() {}
+    func cancel() {}
+}
+
 final public class ListViewController: UITableViewController {
     
     @IBOutlet private(set) public var errorView: ErrorView?
