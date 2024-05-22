@@ -6,7 +6,7 @@ public protocol FeedImageCellControllerDelegate {
     func didCancelImageRequest()
 }
 
-public class FeedImageCellController: CellController, ResourceView, ResourceLoadingView, ResourceErrorView {
+public class FeedImageCellController: NSObject {
     
     public typealias ResourceViewModel = UIImage
     
@@ -19,7 +19,24 @@ public class FeedImageCellController: CellController, ResourceView, ResourceLoad
         self.delegate = delegate
     }
     
-    public func view(in tableView: UITableView) -> UITableViewCell {
+    private func cancelLoad() {
+        releaseCellForReuse()
+        delegate.didCancelImageRequest()
+    }
+    
+    private func releaseCellForReuse() {
+        cell?.onReuse = nil
+        cell = nil
+    }
+}
+
+extension FeedImageCellController: CellController {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell()
         delegate.didRequestImage()
         cell?.locationContainer.isHidden = !viewModel.hasLocation
@@ -34,14 +51,20 @@ public class FeedImageCellController: CellController, ResourceView, ResourceLoad
         return cell!
     }
     
-    public func prefetch() {
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cancelLoad()
+    }
+    
+    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         delegate.didRequestImage()
     }
     
-    public func cancel() {
-        releaseCellForReuse()
-        delegate.didCancelImageRequest()
+    public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        cancelLoad()
     }
+}
+
+extension FeedImageCellController: ResourceView, ResourceLoadingView, ResourceErrorView {
     
     public func display(_ viewModel: UIImage) {
         cell?.feedImageView.setImageAnimated(viewModel)
@@ -53,10 +76,5 @@ public class FeedImageCellController: CellController, ResourceView, ResourceLoad
     
     public func display(_ viewModel: ResourceErrorViewModel) {
         cell?.feedImageRetryButton.isHidden = viewModel.message == nil
-    }
-    
-    private func releaseCellForReuse() {
-        cell?.onReuse = nil
-        cell = nil
     }
 }
