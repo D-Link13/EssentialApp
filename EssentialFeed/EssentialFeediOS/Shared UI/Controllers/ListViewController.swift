@@ -3,7 +3,7 @@ import EssentialFeed
 
 final public class ListViewController: UITableViewController {
     
-    @IBOutlet private(set) public var errorView: ErrorView?
+    private(set) public lazy var errorView = ErrorView()
     private var onViewIsAppearing: (() -> Void)?
     private var loadingControllers = [IndexPath: CellController]()
     private var tableModel = [CellController]() {
@@ -20,6 +20,7 @@ final public class ListViewController: UITableViewController {
             self?.refresh()
             self?.onViewIsAppearing = nil
         }
+        configureErrorView()
     }
     
     public override func viewIsAppearing(_ animated: Bool) {
@@ -53,6 +54,27 @@ final public class ListViewController: UITableViewController {
     public func display(_ cellControllers: [CellController]) {
         loadingControllers = [:]
         tableModel = cellControllers
+    }
+    
+    private func configureErrorView() {
+        let container = UIView()
+        container.backgroundColor = .clear
+        container.addSubview(errorView)
+        
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            errorView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: errorView.trailingAnchor),
+            errorView.topAnchor.constraint(equalTo: container.topAnchor),
+            container.bottomAnchor.constraint(equalTo: errorView.bottomAnchor)
+        ])
+        
+        tableView.tableHeaderView = container
+        
+        errorView.onHide = { [weak self] in
+            self?.tableView.sizeTableHeaderToFit()
+        }
     }
 }
 
@@ -115,6 +137,6 @@ extension ListViewController: ResourceLoadingView {
 extension ListViewController: ResourceErrorView {
     
     public func display(_ viewModel: ResourceErrorViewModel) {
-        errorView?.message = viewModel.message
+        errorView.message = viewModel.message
     }
 }
