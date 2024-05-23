@@ -34,7 +34,8 @@ public final class ErrorView: UIButton {
         titleLabel?.numberOfLines = 0
         titleLabel?.textAlignment = .center
         titleLabel?.textColor = .white
-        titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        titleLabel?.font = .preferredFont(forTextStyle: .body)
+        titleLabel?.adjustsFontForContentSizeCategory = true
     }
 
     private func setMessageAnimated(_ message: String?) {
