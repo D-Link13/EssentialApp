@@ -16,7 +16,7 @@ final public class ListViewController: UITableViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        configureTableView()
     }
     
     public override func viewIsAppearing(_ animated: Bool) {
@@ -57,36 +57,21 @@ final public class ListViewController: UITableViewController {
         }
     }
     
-    private func configure() {
-        tableView.dataSource = dataSource
+    private func configureTableView() {
         dataSource.defaultRowAnimation = .fade
+        tableView.dataSource = dataSource
+        tableView.tableHeaderView = errorView.makeContainer()
+        
         onViewIsAppearing = { [weak self] in
             self?.refresh()
             self?.onViewIsAppearing = nil
         }
-        configureErrorView()
-    }
-    
-    private func configureErrorView() {
-        let container = UIView()
-        container.backgroundColor = .clear
-        container.addSubview(errorView)
-        
-        errorView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            errorView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-            container.trailingAnchor.constraint(equalTo: errorView.trailingAnchor),
-            errorView.topAnchor.constraint(equalTo: container.topAnchor),
-            container.bottomAnchor.constraint(equalTo: errorView.bottomAnchor)
-        ])
-        
-        tableView.tableHeaderView = container
         
         errorView.onHide = { [weak self] in
             self?.tableView.sizeTableHeaderToFit()
         }
     }
+
 }
 
 // MARK: - UITableViewDelegate
