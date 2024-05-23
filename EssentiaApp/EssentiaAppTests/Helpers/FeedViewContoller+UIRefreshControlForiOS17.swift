@@ -1,7 +1,7 @@
 import UIKit
 import EssentialFeediOS
 
-extension FeedViewController {
+extension ListViewController {
     
     func replaceRefreshControllerWithFakeForiOS17Support() {
         let fake = FakeRefreshControl()
