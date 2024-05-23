@@ -59,6 +59,7 @@ final public class ListViewController: UITableViewController {
     
     private func configure() {
         tableView.dataSource = dataSource
+        dataSource.defaultRowAnimation = .fade
         onViewIsAppearing = { [weak self] in
             self?.refresh()
             self?.onViewIsAppearing = nil
