@@ -5,7 +5,7 @@ import EssentialFeediOS
 @testable import EssentiaApp
 import Combine
 
-final class FeedUIIntegrationTests: XCTestCase {
+class FeedUIIntegrationTests: XCTestCase {
     
     func test_feedView_hasTitle() {
         let (sut, _) = makeSUT()
@@ -400,7 +400,7 @@ final class FeedUIIntegrationTests: XCTestCase {
         FeedImage(id: UUID(), description: description, location: location, url: url)
     }
     
-    private func assertThat(_ sut: ListViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
+    func assertThat(_ sut: ListViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
         
         sut.view.enforceLayoutCycle()
         
@@ -414,7 +414,7 @@ final class FeedUIIntegrationTests: XCTestCase {
         
     }
     
-    private func assertThat(_ sut: ListViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #file, line: UInt = #line) {
+    func assertThat(_ sut: ListViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #file, line: UInt = #line) {
         
         let view = sut.feedImageView(at: index)
         
@@ -434,11 +434,11 @@ final class FeedUIIntegrationTests: XCTestCase {
         func display(_ viewModel: Any) {}
     }
     
-    private var loadError: String {
+    var loadError: String {
         LoadResourcePresenter<Any, DummyView>.loadError
     }
     
-    private var feedTitle: String {
+    var feedTitle: String {
         FeedPresenter.title
     }
     
@@ -446,7 +446,7 @@ final class FeedUIIntegrationTests: XCTestCase {
         return UIImage.make(withColor: .red).pngData()!
     }
     
-    private class LoaderSpy: FeedImageDataLoader {
+    class LoaderSpy: FeedImageDataLoader {
         
         private(set) var feedRequests = [PassthroughSubject<[FeedImage], Error>]()
         
