@@ -3,34 +3,34 @@ import EssentialFeed
 import EssentialFeediOS
 import Combine
 
-public final class ImageCommentsUIComposer {
+public final class CommentsUIComposer {
     
     private typealias FeedPresentationAdapter = LoadResourcePresentationAdapter<[FeedImage], FeedViewAdapter>
     
     private init() {}
     
-    public static func imageCommentsComposedWith(
+    public static func commentsComposedWith(
         commentsLoader: @escaping () -> AnyPublisher<[FeedImage], Error>
     ) -> ListViewController {
         let presentationAdapter = FeedPresentationAdapter(loader: commentsLoader)
         
-        let feedController = makeFeedViewController(title: FeedPresenter.title)
-        feedController.onRefresh = presentationAdapter.loadResource
+        let controller = makeCommentsViewController(title: ImageCommentsPresenter.title)
+        controller.onRefresh = presentationAdapter.loadResource
         
         presentationAdapter.presenter = LoadResourcePresenter(
-            resourceView: FeedViewAdapter(controller: feedController,
+            resourceView: FeedViewAdapter(controller: controller,
                                           imageLoader: { _ in Empty<Data, Error>().eraseToAnyPublisher() }),
-            loadingView: WeakRefVirtualProxy(feedController),
-            errorView: WeakRefVirtualProxy(feedController),
+            loadingView: WeakRefVirtualProxy(controller),
+            errorView: WeakRefVirtualProxy(controller),
             mapper: FeedPresenter.map
         )
-        return feedController
+        return controller
     }
     
-    private static func makeFeedViewController(title: String) -> ListViewController {
-        let storyboard = UIStoryboard(name: "Feed", bundle: Bundle(for: ListViewController.self))
+    private static func makeCommentsViewController(title: String) -> ListViewController {
+        let storyboard = UIStoryboard(name: "ImageComments", bundle: Bundle(for: ListViewController.self))
         let controller = storyboard.instantiateInitialViewController() as! ListViewController
-        controller.title = FeedPresenter.title
+        controller.title = title
         return controller
     }
 }

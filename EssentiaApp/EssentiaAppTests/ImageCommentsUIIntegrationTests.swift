@@ -7,12 +7,12 @@ import Combine
 
 final class ImageCommentsUIIntegrationTests: FeedUIIntegrationTests {
     
-    override func test_feedView_hasTitle() {
+    func test_commentsView_hasTitle() {
         let (sut, _) = makeSUT()
         
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.title, feedTitle)
+        XCTAssertEqual(sut.title, imageCommentsTitle)
     }
     
     override func test_loadFeedActions_requestsFeedFromLoader() {
@@ -147,7 +147,7 @@ final class ImageCommentsUIIntegrationTests: FeedUIIntegrationTests {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = ImageCommentsUIComposer.imageCommentsComposedWith(commentsLoader: loader.loadPublisher)
+        let sut = CommentsUIComposer.commentsComposedWith(commentsLoader: loader.loadPublisher)
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
@@ -155,5 +155,9 @@ final class ImageCommentsUIIntegrationTests: FeedUIIntegrationTests {
     
     private func makeImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "http://any-url.com")!) -> FeedImage {
         FeedImage(id: UUID(), description: description, location: location, url: url)
+    }
+    
+    var imageCommentsTitle: String {
+        ImageCommentsPresenter.title
     }
 }
