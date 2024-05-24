@@ -28,7 +28,7 @@ public final class CommentsUIComposer {
     }
     
     private static func makeCommentsViewController(title: String) -> ListViewController {
-        let storyboard = UIStoryboard(name: "ImageComments", bundle: Bundle(for: ListViewController.self))
+        let storyboard = UIStoryboard(name: "Feed", bundle: Bundle(for: ListViewController.self))
         let controller = storyboard.instantiateInitialViewController() as! ListViewController
         controller.title = title
         return controller
