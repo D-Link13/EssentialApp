@@ -430,14 +430,6 @@ class FeedUIIntegrationTests: XCTestCase {
         XCTAssertEqual(cell.descriptionText, image.description, "Expected description text to be \(String(describing: image.description)) for image view at index (\(index)", file: file, line: line)
     }
     
-    private class DummyView: ResourceView {
-        func display(_ viewModel: Any) {}
-    }
-    
-    var loadError: String {
-        LoadResourcePresenter<Any, DummyView>.loadError
-    }
-    
     var feedTitle: String {
         FeedPresenter.title
     }

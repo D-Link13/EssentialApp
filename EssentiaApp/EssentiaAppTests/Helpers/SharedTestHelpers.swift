@@ -16,3 +16,11 @@ func anyData() -> Data {
 func uniqueFeed() -> [FeedImage] {
     return [FeedImage(id: UUID(), description: "any", location: "any", url: anyURL())]
 }
+
+class DummyView: ResourceView {
+    func display(_ viewModel: Any) {}
+}
+
+var loadError: String {
+    LoadResourcePresenter<Any, DummyView>.loadError
+}
