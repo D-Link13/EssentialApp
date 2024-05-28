@@ -13,6 +13,12 @@ extension ListViewController {
         refreshControl?.simulatePullToRefresh()
     }
     
+    func simulateFeedImageTap(at row: Int) {
+        let indexPath = IndexPath(row: row, section: feedImagesSection)
+        let dl = tableView.delegate
+        dl?.tableView?(tableView, didSelectRowAt: indexPath)
+    }
+    
     func simulateErrorViewTap() {
         errorView.simulateTap()
     }
