@@ -3,12 +3,6 @@ import EssentialFeediOS
 
 extension ListViewController {
     
-    public override func loadViewIfNeeded() {
-        super.loadViewIfNeeded()
-        
-        tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
-    }
-    
     func simulateUserInitiatedReload() {
         refreshControl?.simulatePullToRefresh()
     }
@@ -31,10 +25,19 @@ extension ListViewController {
         refreshControl?.isRefreshing == true
     }
     
+    private func prepareForFirstAppearance() {
+        setSmallFrameToPreventRenderingCells()
+        replaceRefreshControllerWithFakeForiOS17Support()
+    }
+    
+    private func setSmallFrameToPreventRenderingCells() {
+        tableView.frame = CGRect(x: 0, y: 0, width: 390, height: 1)
+    }
+    
     func simulateAppearance() {
         if !isViewLoaded {
             loadViewIfNeeded()
-            replaceRefreshControllerWithFakeForiOS17Support()
+            prepareForFirstAppearance()
         }
         beginAppearanceTransition(true, animated: false)
         endAppearanceTransition()
