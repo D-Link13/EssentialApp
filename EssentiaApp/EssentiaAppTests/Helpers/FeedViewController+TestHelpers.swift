@@ -7,10 +7,8 @@ extension ListViewController {
         refreshControl?.simulatePullToRefresh()
     }
     
-    func simulateFeedImageTap(at row: Int) {
-        let indexPath = IndexPath(row: row, section: feedImagesSection)
-        let dl = tableView.delegate
-        dl?.tableView?(tableView, didSelectRowAt: indexPath)
+    func isShowingLoadingIndicator() -> Bool {
+        refreshControl?.isRefreshing == true
     }
     
     func simulateErrorViewTap() {
@@ -21,8 +19,17 @@ extension ListViewController {
         return errorView.message
     }
     
-    func isShowingLoadingIndicator() -> Bool {
-        refreshControl?.isRefreshing == true
+    func numberOfRows(in section: Int) -> Int {
+        tableView.numberOfSections > section ? tableView.numberOfRows(inSection: section) : 0
+    }
+    
+    func cell(row: Int, section: Int) -> UITableViewCell? {
+        guard numberOfRows(in: section) > row else {
+            return nil
+        }
+        let ds = tableView.dataSource
+        let index = IndexPath(row: row, section: section)
+        return ds?.tableView(tableView, cellForRowAt: index)
     }
     
     private func prepareForFirstAppearance() {
@@ -42,20 +49,37 @@ extension ListViewController {
         beginAppearanceTransition(true, animated: false)
         endAppearanceTransition()
     }
+}
+
+extension ListViewController {
     
-    func numberOfRenderedFeedImages() -> Int {
-        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: feedImagesSection)
+    func numberOfRenderedComments() -> Int {
+        numberOfRows(in: commentsSection)
     }
     
-    private var feedImagesSection: Int { 0 }
+    func commentMessage(at row: Int) -> String? {
+        commentView(at: row)?.messageLabel.text
+    }
     
-    func feedImageView(at row: Int) -> UITableViewCell? {
-        guard numberOfRenderedFeedImages() > row else {
-            return nil
-        }
-        let ds = tableView.dataSource
-        let index = IndexPath(row: row, section: feedImagesSection)
-        return ds?.tableView(tableView, cellForRowAt: index)
+    func commentDate(at row: Int) -> String? {
+        commentView(at: row)?.dateLabel.text
+    }
+    
+    func commentUsername(at row: Int) -> String? {
+        commentView(at: row)?.usernameLabel.text
+    }
+    
+    private func commentView(at row: Int) -> ImageCommentCell? {
+        cell(row: row, section: commentsSection) as? ImageCommentCell
+    }
+    
+    private var commentsSection: Int { 0 }
+}
+
+extension ListViewController {
+    
+    func numberOfRenderedFeedImages() -> Int {
+        numberOfRows(in: feedImagesSection)
     }
     
     @discardableResult
@@ -96,40 +120,19 @@ extension ListViewController {
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
     }
     
+    func simulateFeedImageTap(at row: Int) {
+        let indexPath = IndexPath(row: row, section: feedImagesSection)
+        let dl = tableView.delegate
+        dl?.tableView?(tableView, didSelectRowAt: indexPath)
+    }
+    
     func renderedFeedImageData(at index: Int) -> Data? {
         simulateFeedImageViewVisible(at: index)?.renderedImage
     }
-}
-
-extension ListViewController {
     
-    func numberOfRenderedComments() -> Int {
-        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: commentsSection)
+    func feedImageView(at row: Int) -> UITableViewCell? {
+        cell(row: row, section: feedImagesSection)
     }
     
-    func commentMessage(at row: Int) -> String? {
-        commentView(at: row)?.messageLabel.text
-    }
-    
-    func commentDate(at row: Int) -> String? {
-        commentView(at: row)?.dateLabel.text
-    }
-    
-    func commentUsername(at row: Int) -> String? {
-        commentView(at: row)?.usernameLabel.text
-    }
-    
-    private func commentView(at row: Int) -> ImageCommentCell? {
-        guard numberOfRenderedComments() > row else {
-            return nil
-        }
-        
-        let ds = tableView.dataSource
-        let indexPath = IndexPath(row: row, section: commentsSection)
-        return ds?.tableView(tableView, cellForRowAt: indexPath) as? ImageCommentCell
-    }
-    
-    private var commentsSection: Int {
-        return 0
-    }
+    private var feedImagesSection: Int { 0 }
 }
