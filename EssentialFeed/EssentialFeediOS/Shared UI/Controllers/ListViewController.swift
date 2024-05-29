@@ -10,7 +10,7 @@ final public class ListViewController: UITableViewController {
         }
     }()
     
-    private var onViewIsAppearing: (() -> Void)?
+    private var onViewIsAppearing: ((ListViewController) -> Void)?
     public var onRefresh: (() -> Void)?
     
     public override func viewDidLoad() {
@@ -22,7 +22,7 @@ final public class ListViewController: UITableViewController {
     public override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
         
-        onViewIsAppearing?()
+        onViewIsAppearing?(self)
     }
     
     public override func viewDidLayoutSubviews() {
@@ -62,9 +62,9 @@ final public class ListViewController: UITableViewController {
         tableView.dataSource = dataSource
         tableView.tableHeaderView = errorView.makeContainer()
         
-        onViewIsAppearing = { [weak self] in
-            self?.refresh()
-            self?.onViewIsAppearing = nil
+        onViewIsAppearing = { vc in
+            vc.onViewIsAppearing = nil
+            vc.refresh()
         }
         
         errorView.onHide = { [weak self] in
@@ -86,6 +86,11 @@ extension ListViewController {
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let dl = cellController(at: indexPath)?.delegate
         dl?.tableView?(tableView, didEndDisplaying: cell, forRowAt: indexPath)
+    }
+    
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dl = cellController(at: indexPath)?.delegate
+        dl?.tableView?(tableView, didSelectRowAt: indexPath)
     }
     
 }
